@@ -14,10 +14,8 @@ export default class CREATEidentificador1593290573475 implements MigrationInterf
                     [
                         {
                             name:'ID',
-                            type:'uuid',
+                            type:'integer',
                             isPrimary: true,
-                            generationStrategy:'uuid',
-                            default:'uuid_generate_v4()',
                         },
                         {
                             name:'nome',
