@@ -44,8 +44,8 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                             type:'varchar',
                         },
                         {
-                            name: 'update',
-                            type:'date',   
+                            name: 'updateDate',
+                            type:'timestamp',   
                         },
                         {
                             name: 'foto',
@@ -61,7 +61,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name: 'createDate',
-                            type: 'date',
+                            type: 'timestamp',
                         },
                         {
                             name: 'saldo',
