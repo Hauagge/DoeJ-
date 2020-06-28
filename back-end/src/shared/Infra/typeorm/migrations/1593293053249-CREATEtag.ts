@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export default class tag1593293053249 implements MigrationInterface {
+export default class CREATEtag1593293053249 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {

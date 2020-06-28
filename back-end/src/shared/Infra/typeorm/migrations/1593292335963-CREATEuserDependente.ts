@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, Column, TableForeignKey} from "typeorm";
 
-export default class userDependente1593292335963 implements MigrationInterface {
+export default class CREATEuserDependente1593292335963 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {

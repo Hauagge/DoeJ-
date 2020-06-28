@@ -1,3 +1,4 @@
+
 {
   "type":"postgres",
   "host": "192.168.99.100",
@@ -6,12 +7,13 @@
   "password":"docker",
   "database": "haus",
   "entities":[
-    "./src/modules/**/Infra/typeorm/entities/*.ts"
+    "./src/entities/*.ts"
   ],
   "migrations":[
     "./src/shared/Infra/typeorm/migrations/*.ts"
   ],
   "cli":{
+    "entitiesDir":"./src/entities",
     "migrationsDir":"./src/shared/Infra/typeorm/migrations"
   }
 

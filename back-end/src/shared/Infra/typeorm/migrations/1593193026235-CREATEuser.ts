@@ -66,18 +66,18 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         {
                             name: 'saldo',
                             type: 'double',
-                            default: '0,00',
+                            default: '0',
                         },
                         {
                             name: 'nascimento',
                             type: 'date',
                         },
                         {
-                            name: 'fotodoc_frente',
+                            name: 'fotoDoc_frente',
                             type:'bytea',
                         },
                         {
-                            name: 'fotodoc_verso',
+                            name: 'fotoDoc_verso',
                             type:'bytea',
                         },
                         {
@@ -93,6 +93,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                 new TableForeignKey
                 (
                     {
+                        name: 'FK_ID',
                         columnNames:['Identifier_ID'],
                         referencedColumnNames: ["ID"],
                         referencedTableName: "Identificador",
@@ -106,6 +107,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void>
     {
+        await queryRunner.dropForeignKey('User','FK_ID');
         await queryRunner.dropTable('User');
     }
 
