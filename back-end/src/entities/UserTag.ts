@@ -2,7 +2,7 @@ import {Entity, ManyToOne} from "typeorm";
 import User from "./User";
 import Tag from "./Tag";
 
-@Entity()
+@Entity('UserTag')
 export default class UserTag 
 {
     @ManyToOne(type => User, user => user.ID)

@@ -2,7 +2,7 @@ import {Entity, ManyToOne, PrimaryGeneratedColumn, Column} from "typeorm";
 import User from "./User";
 import Bandeira from "./Bandeira";
 
-@Entity()
+@Entity('Cartao')
 export default class Cartao 
 {
     @PrimaryGeneratedColumn('uuid')

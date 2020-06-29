@@ -3,7 +3,7 @@ import CREATEcategoriaLista1593307198848 from "@shared/Infra/typeorm/migrations/
 import User from "./User";
 import CategoriaLista from "./CategoriaLista";
 
-@Entity()
+@Entity('Lista')
 export default class Lista 
 {
     @PrimaryGeneratedColumn('uuid')

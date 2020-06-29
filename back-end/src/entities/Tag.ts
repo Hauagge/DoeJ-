@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity()
+@Entity('Tag')
 export default class Tag 
 {
     @PrimaryGeneratedColumn('uuid')

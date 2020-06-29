@@ -3,7 +3,7 @@ import User from "./User";
 import Voucher from "./Voucher";
 
 
-@Entity()
+@Entity('Historico')
 export default class Historico 
 {
     @PrimaryGeneratedColumn('uuid')

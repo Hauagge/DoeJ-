@@ -1,7 +1,7 @@
 import {Entity, ManyToOne, Column} from "typeorm";
 import Produto from "./Produto";
 
-@Entity()
+@Entity('ImgProduto')
 export default class ImgProduto 
 {
     @Column()

@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity()
+@Entity('CategoriaLista')
 export default class CategoriaLista
 {   
     @PrimaryGeneratedColumn('uuid')
