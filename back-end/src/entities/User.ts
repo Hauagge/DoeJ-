@@ -1,5 +1,5 @@
 import {Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn, ManyToOne} from "typeorm";
-import Identificador from "./identificador";
+import Identificador from "./Identificador";
 
 @Entity('User')
 export default class User

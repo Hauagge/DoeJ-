@@ -30,6 +30,7 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
         new TableForeignKey
         (
             {
+                name:'FK_ID',
                 columnNames:['produto_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Produto',
@@ -42,6 +43,7 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('ImgProduto','FK_ID');
         await queryRunner.dropTable('ImgProduto');
     }
 
