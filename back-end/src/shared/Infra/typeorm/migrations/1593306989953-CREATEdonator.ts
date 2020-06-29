@@ -14,7 +14,7 @@ export default class CREATEdonator1593306989953 implements MigrationInterface {
                         type: 'varchar',
                     },
                     {
-                        name: 'lista_ID',
+                        name: 'user_ID',
                         type: 'varchar',
                     },
                     {
@@ -30,6 +30,7 @@ export default class CREATEdonator1593306989953 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKUSER_ID',
                 columnNames:['user_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -42,6 +43,7 @@ export default class CREATEdonator1593306989953 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKLISTA_ID',
                 columnNames:['lista_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Lista',
@@ -53,6 +55,8 @@ export default class CREATEdonator1593306989953 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('Donator','FKUSER_ID');
+        await queryRunner.dropForeignKey('Donator','FKLISTA_ID');
         await queryRunner.dropTable('Donator');
     }
 

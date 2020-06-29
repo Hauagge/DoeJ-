@@ -45,6 +45,7 @@ export default class voucher1593299446927 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FK_ID',
                 columnNames:['userGen_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -56,6 +57,7 @@ export default class voucher1593299446927 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void>
     {
+        await queryRunner.dropForeignKey('Voucher','FK_ID');
         await queryRunner.dropTable('Voucher');
     }
 
