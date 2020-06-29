@@ -44,6 +44,7 @@ export default class historico1593294298687 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKUSER_ID',
                 columnNames:['user_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -55,6 +56,7 @@ export default class historico1593294298687 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKVOUCHER_ID',
                 columnNames:['voucher_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Voucher',
@@ -66,6 +68,8 @@ export default class historico1593294298687 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('Historico','FKUSER_ID');
+        await queryRunner.dropForeignKey('Historico','FKVOUCHER_ID');
         await queryRunner.dropTable('Historico');
     }
 

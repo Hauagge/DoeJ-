@@ -35,6 +35,7 @@ export default class CREATEuserTag1593293901259 implements MigrationInterface {
                 new TableForeignKey
                 (
                     {
+                        name: 'FKUSER_ID',
                         columnNames:['user_ID'],
                         referencedColumnNames: ['ID'],
                         referencedTableName: 'User',
@@ -47,6 +48,7 @@ export default class CREATEuserTag1593293901259 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKTAG_ID',
                 columnNames:['tag_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Tag',
@@ -58,6 +60,8 @@ export default class CREATEuserTag1593293901259 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('UserTag','FKUSER_ID');
+        await queryRunner.dropForeignKey('UserTag','FKTAG_ID');
         await queryRunner.dropTable('UserTag');
     }
 

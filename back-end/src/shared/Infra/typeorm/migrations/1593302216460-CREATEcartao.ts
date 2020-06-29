@@ -47,6 +47,7 @@ export default class CREATEcartao1593302216460 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKBANDEIRA_ID',
                 columnNames:['bandeira_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Bandeira',
@@ -59,6 +60,7 @@ export default class CREATEcartao1593302216460 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKUSER_ID',
                 columnNames:['user_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -70,6 +72,8 @@ export default class CREATEcartao1593302216460 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void>
     {
+        await queryRunner.dropForeignKey('Cartao','FKBANDEIRA_ID');
+        await queryRunner.dropForeignKey('Cartao','FKUSER_ID');
         await queryRunner.dropTable('Cartao');
     }
 }

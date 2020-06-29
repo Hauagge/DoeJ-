@@ -34,6 +34,7 @@ export default class CREATEuserDependente1593292335963 implements MigrationInter
                 new TableForeignKey
                 (
                     {
+                        name: 'FK_ID',
                         columnNames:['user_ID','dependente_ID'],
                         referencedColumnNames: ['ID'],
                         referencedTableName: 'User',
@@ -48,6 +49,7 @@ export default class CREATEuserDependente1593292335963 implements MigrationInter
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('UserDependente','FK_ID');
         await queryRunner.dropTable('UserDependente');
     }
 
