@@ -44,6 +44,7 @@ export default class CREATElista1593306967743 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKCATEGORIALISTA_ID',
                 columnNames:['categoriaLista_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'CategoriaLista',
@@ -56,6 +57,7 @@ export default class CREATElista1593306967743 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name:'FKUSER_ID',
                 columnNames:['user_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -68,6 +70,8 @@ export default class CREATElista1593306967743 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('Lista','FKCATEGORIALISTA_ID');
+        await queryRunner.dropForeignKey('Lista','FKUSER_ID');
         await queryRunner.dropTable('Lista');
     }
 

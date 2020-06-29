@@ -48,6 +48,7 @@ export default class CREATEproduto1593304327442 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKUSER_ID',
                 columnNames:['user_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -60,6 +61,7 @@ export default class CREATEproduto1593304327442 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FKMARCA_ID',
                 columnNames:['marca_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Marca',
@@ -71,6 +73,8 @@ export default class CREATEproduto1593304327442 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('Produto','FKUSER_ID');
+        await queryRunner.dropForeignKey('Produto','FKMARCA_ID');
         await queryRunner.dropTable('Produto');
     }
 
