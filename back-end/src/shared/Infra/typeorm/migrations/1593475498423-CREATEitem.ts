@@ -20,11 +20,11 @@ export default class CREATEitem1593475498423 implements MigrationInterface
                         },
                         {
                             name: 'produto_ID',
-                            type:'varchar',
+                            type:'uuid',
                         },
                         {
-                            name:'lista_TD',
-                            type:'varchar'
+                            name:'lista_ID',
+                            type:'uuid'
                         },
                         {
                             name: 'quantidade',

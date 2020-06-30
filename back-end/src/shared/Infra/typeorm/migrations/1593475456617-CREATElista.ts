@@ -33,15 +33,15 @@ export default class CREATElista1593475456617 implements MigrationInterface {
                     },
                     {
                         name: 'userDonator_ID',
-                        type: 'varchar',
+                        type: 'uuid',
                     },
                     {
                         name:'categoriaLista_ID',
-                        type:'varchar',
+                        type:'uuid',
                     },
                     {
                         name:'user_ID',
-                        type:'varchar',
+                        type:'uuid',
                     }
                 ]
              }   

@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEhistorico1593474913181 implements MigrationInterface {
+export default class CREATEhistorico2593474913181 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -21,7 +21,7 @@ export default class CREATEhistorico1593474913181 implements MigrationInterface 
                         },
                         {
                             name:'descricao',
-                            type:'varchar'
+                            type:'varchar',
                         },
                         {
                             name:'data',
@@ -29,11 +29,11 @@ export default class CREATEhistorico1593474913181 implements MigrationInterface 
                         },
                         {
                             name: 'voucher_ID',
-                            type: 'varchar',                            
+                            type: 'uuid',                            
                         },
                         {
                             name: 'user_ID',
-                            type: 'varchar',
+                            type: 'uuid',
                         }                 
                     ]
                 }

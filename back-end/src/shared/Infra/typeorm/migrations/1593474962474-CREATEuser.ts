@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEuser1593193026235 implements MigrationInterface {
+export default class CREATEuser1593474962474 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -21,7 +21,8 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name: 'docID',
-                            type: 'varchar'
+                            type: 'varchar',
+                            isNullable: true,
                         },
                         {
                             name:'nome',
@@ -33,23 +34,27 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name:'telefoneOpc',
-                            type:'varchar'
+                            type:'varchar',
+                            isNullable: true,
                         },
                         {
                             name:'telefoneMov',
                             type:'varchar',
+                            isNullable: true,
                         },
                         {
                             name:'endereco',
                             type:'varchar',
+                            isNullable: true,
                         },
                         {
                             name: 'updateDate',
-                            type:'timestamp',   
+                            type:'timestamp',
                         },
                         {
                             name: 'foto',
                             type: 'varchar',
+                            isNullable: true,
                         },
                         {
                             name: 'login',
@@ -70,19 +75,22 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name: 'nascimento',
-                            type: 'date',
+                            type: 'date',                            
+                            isNullable: true,
                         },
                         {
                             name: 'fotoDoc_frente',
-                            type:'varchar',
+                            type:'varchar',                            
+                            isNullable: true,
                         },
                         {
                             name: 'fotoDoc_verso',
-                            type:'varchar',
+                            type:'varchar',                            
+                            isNullable: true,
                         },
                         {
                             name: 'identifier_ID',
-                            type: 'varchar',
+                            type: 'integer',
                         }                
                     ]
                 }
@@ -94,7 +102,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                 (
                     {
                         name: 'FK_ID',
-                        columnNames:['Identifier_ID'],
+                        columnNames:['identifier_ID'],
                         referencedColumnNames: ["ID"],
                         referencedTableName: "Identificador",
                         onDelete: "CASCADE"

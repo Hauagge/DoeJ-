@@ -22,12 +22,12 @@ export default class CREATEuserTag1593475041199 implements MigrationInterface {
                         },
                         {
                             name:'user_ID',
-                            type:'varchar',
+                            type:'uuid',
                             isNullable: false,
                         },
                         {
                             name:'tag_ID',
-                            type:'varchar',
+                            type:'uuid',
                             isNullable: false,
                         }
                     ]

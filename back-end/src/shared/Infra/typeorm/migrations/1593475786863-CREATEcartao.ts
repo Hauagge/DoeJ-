@@ -34,11 +34,11 @@ export default class CREATEcartao1593475786863 implements MigrationInterface {
                 },
                 {
                     name:'bandeira_ID',
-                    type:'varchar',
+                    type:'uuid',
                 },
                 {
                     name:'user_ID',
-                    type: 'varchar',
+                    type: 'uuid',
                 }
             ]
             })    

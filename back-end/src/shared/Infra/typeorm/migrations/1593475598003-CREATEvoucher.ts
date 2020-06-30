@@ -35,7 +35,7 @@ export default class CREATEvoucher1593475598003 implements MigrationInterface {
                     },
                     {
                         name:'userGen_ID',
-                        type:'varchar',
+                        type:'uuid',
                     }
 
                 ]
