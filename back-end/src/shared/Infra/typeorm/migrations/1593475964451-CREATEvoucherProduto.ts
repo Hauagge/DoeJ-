@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEvoucherProduto1593311547371 implements MigrationInterface {
+export default class CREATEvoucherProduto1593475964451 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void>
     {
@@ -9,6 +9,13 @@ export default class CREATEvoucherProduto1593311547371 implements MigrationInter
                 {
                     name:'VoucherProduto',
                     columns:[
+                        {
+                            name: 'ID',
+                            type: 'uuid',
+                            default: 'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid'
+                        },
                         {
                             name:'voucher_ID',
                             type:'varchar',

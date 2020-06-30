@@ -10,5 +10,5 @@ export default class CategoriaLista
     descricao: string;
 
     @Column()
-    icon: Blob;
+    icon: string;
 }

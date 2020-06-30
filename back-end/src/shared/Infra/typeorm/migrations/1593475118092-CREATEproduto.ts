@@ -1,46 +1,50 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class historico1593294298687 implements MigrationInterface {
+export default class CREATEproduto1593475118092 implements MigrationInterface {
 
-    public async up(queryRunner: QueryRunner): Promise<void> 
+    public async up(queryRunner: QueryRunner): Promise<void>
     {
         await queryRunner.createTable
         (
             new Table
             (
                 {
-                    name:'Historico',
+                    name:'Produto',
                     columns:
                     [
                         {
                             name:'ID',
                             type:'uuid',
-                            isPrimary: true,
-                            generationStrategy: 'uuid',
                             default:'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy:'uuid'
                         },
                         {
                             name:'descricao',
-                            type:'varchar'
+                            type:'varchar',
                         },
                         {
-                            name:'data',
-                            type:'date'
+                            name:'preco',
+                            type:'NUMERIC(9, 2)',
                         },
                         {
-                            name: 'voucher_ID',
-                            type: 'varchar',                            
+                            name:'quantidade',
+                            type:'integer',
                         },
                         {
-                            name: 'user_ID',
-                            type: 'varchar',
-                        }                 
+                            name:'user_ID',
+                            type:'varchar',
+                        },
+                        {
+                            name:'marca_ID',
+                            type:'varchar',
+                        }
                     ]
                 }
             )
         );
 
-        await queryRunner.createForeignKey('Historico',
+        await queryRunner.createForeignKey('Produto',
         new TableForeignKey
         (
             {
@@ -52,14 +56,15 @@ export default class historico1593294298687 implements MigrationInterface {
             }
         )
         );
-        await queryRunner.createForeignKey('Historico',
+        
+        await queryRunner.createForeignKey('Produto',
         new TableForeignKey
         (
             {
-                name: 'FKVOUCHER_ID',
-                columnNames:['voucher_ID'],
+                name: 'FKMARCA_ID',
+                columnNames:['marca_ID'],
                 referencedColumnNames: ['ID'],
-                referencedTableName: 'Voucher',
+                referencedTableName: 'Marca',
                 onDelete: 'CASCADE'
             }
         )
@@ -68,9 +73,9 @@ export default class historico1593294298687 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
-        await queryRunner.dropForeignKey('Historico','FKUSER_ID');
-        await queryRunner.dropForeignKey('Historico','FKVOUCHER_ID');
-        await queryRunner.dropTable('Historico');
+        await queryRunner.dropForeignKey('Produto','FKUSER_ID');
+        await queryRunner.dropForeignKey('Produto','FKMARCA_ID');
+        await queryRunner.dropTable('Produto');
     }
 
 }

@@ -1,6 +1,7 @@
 import {MigrationInterface, QueryRunner, Table, Column} from "typeorm";
 
-export default class CREATEidentificador1593290573475 implements MigrationInterface {
+export default class CREATEidentificador1593290573475 implements MigrationInterface 
+{
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -19,6 +20,7 @@ export default class CREATEidentificador1593290573475 implements MigrationInterf
                         },
                         {
                             name:'nome',
+                         
                             type:'varchar',
                         }
                     ]

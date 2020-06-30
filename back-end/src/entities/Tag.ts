@@ -10,6 +10,6 @@ export default class Tag
     descricao: string;
 
     @Column()
-    foto: Blob;
+    foto: string;
     
 }

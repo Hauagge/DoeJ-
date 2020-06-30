@@ -1,11 +1,11 @@
 
 {
   "type":"postgres",
-  "host": "192.168.99.100",
-  "port":5432,
+  "host": "localhost",
+  "port": 5432,
   "username":"postgres",
-  "password":"docker",
-  "database": "haus",
+  "password":"1234",
+  "database": "DoeJa",
   "entities":[
     "./src/entities/*.ts"
   ],

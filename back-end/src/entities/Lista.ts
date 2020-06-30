@@ -1,5 +1,4 @@
 import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
-import CREATEcategoriaLista1593307198848 from "@shared/Infra/typeorm/migrations/1593307198848-CREATEcategoriaLista";
 import User from "./User";
 import CategoriaLista from "./CategoriaLista";
 
@@ -15,9 +14,15 @@ export default class Lista
     @Column()
     dateCreate: Date;
 
+    @Column()
+    dateDonate: Date;
+
+    @Column()
+    userDonator_ID: string;
+
     @ManyToOne(type => CategoriaLista, categoriaLista => categoriaLista.ID)
     categoriaLista_ID: CategoriaLista;
 
     @ManyToOne(type => User, user => user.ID)
-    user_ID: User;
+    userOwner_ID: User;
 }

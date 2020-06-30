@@ -1,8 +1,7 @@
-import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
+import {MigrationInterface, QueryRunner, Table, Column, TableForeignKey} from "typeorm";
 
-export default class CREATEuserTag1593293901259 implements MigrationInterface {
+export default class CREATEuserDependente1593475005446 implements MigrationInterface {
 
-   
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
         await queryRunner.createTable
@@ -10,16 +9,23 @@ export default class CREATEuserTag1593293901259 implements MigrationInterface {
             new Table
             (  
                 {
-                    name:'UserTag',
+                    name:'UserDependente',
                     columns:
                     [
+                        {
+                            name: 'ID',
+                            type: 'uuid',
+                            default: 'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid'
+                        },
                         {
                             name:'user_ID',
                             type:'varchar',
                             isNullable: false,
                         },
                         {
-                            name:'tag_ID',
+                            name:'dependente_ID',
                             type:'varchar',
                             isNullable: false,
                         }
@@ -31,12 +37,12 @@ export default class CREATEuserTag1593293901259 implements MigrationInterface {
 
         );
 
-        await queryRunner.createForeignKey('UserTag',
+        await queryRunner.createForeignKey('UserDependente',
                 new TableForeignKey
                 (
                     {
-                        name: 'FKUSER_ID',
-                        columnNames:['user_ID'],
+                        name: 'FK_ID',
+                        columnNames:['user_ID','dependente_ID'],
                         referencedColumnNames: ['ID'],
                         referencedTableName: 'User',
                         onDelete: 'CASCADE'
@@ -44,25 +50,15 @@ export default class CREATEuserTag1593293901259 implements MigrationInterface {
                 )
         );
 
-        await queryRunner.createForeignKey('UserTag',
-        new TableForeignKey
-        (
-            {
-                name: 'FKTAG_ID',
-                columnNames:['tag_ID'],
-                referencedColumnNames: ['ID'],
-                referencedTableName: 'Tag',
-                onDelete: 'CASCADE'
-            }
-        )
-);
+
+
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
-        await queryRunner.dropForeignKey('UserTag','FKUSER_ID');
-        await queryRunner.dropForeignKey('UserTag','FKTAG_ID');
-        await queryRunner.dropTable('UserTag');
+        await queryRunner.dropForeignKey('UserDependente','FK_ID');
+        await queryRunner.dropTable('UserDependente');
     }
 
 }
+
