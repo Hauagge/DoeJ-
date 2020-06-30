@@ -1,4 +1,4 @@
-import {Entity, ManyToOne} from "typeorm";
+import {Entity, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import User from "./User";
 
 
@@ -6,6 +6,9 @@ import User from "./User";
 @Entity('UserDependente')
 export class UserDependente 
 {
+    @PrimaryGeneratedColumn('uuid')
+    ID: string;
+
     @ManyToOne(type => User, user => user.ID)
     user_ID: User;
 

@@ -1,11 +1,14 @@
-import {Entity, ManyToOne, Column} from "typeorm";
+import {Entity, ManyToOne, Column, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import Produto from "./Produto";
 
-@Entity()
+@Entity('ImgProduto')
 export default class ImgProduto 
 {
+    @PrimaryGeneratedColumn('uuid')
+    ID:string;
+
     @Column()
-    img: Blob;
+    img: string;
 
     @Column()
     descricao: string;

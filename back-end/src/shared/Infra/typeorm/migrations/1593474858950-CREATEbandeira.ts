@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CREATEbandeira1593303655213 implements MigrationInterface {
+export default class CREATEbandeira1593474858950 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void>
     {

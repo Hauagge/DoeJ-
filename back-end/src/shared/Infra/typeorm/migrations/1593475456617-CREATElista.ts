@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATElista1593306967743 implements MigrationInterface {
+export default class CREATElista1593475456617 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -26,6 +26,14 @@ export default class CREATElista1593306967743 implements MigrationInterface {
                         name:'dateCreate',
                         type:'timestamp',
                         default:'now()',
+                    },
+                    {
+                        name: 'dateDonate',
+                        type: 'timestamp',
+                    },
+                    {
+                        name: 'userDonator_ID',
+                        type: 'varchar',
                     },
                     {
                         name:'categoriaLista_ID',

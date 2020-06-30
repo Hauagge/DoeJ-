@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEcartao1593302216460 implements MigrationInterface {
+export default class CREATEcartao1593475786863 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void>
     {

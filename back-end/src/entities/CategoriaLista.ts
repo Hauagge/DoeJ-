@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity()
+@Entity('CategoriaLista')
 export default class CategoriaLista
 {   
     @PrimaryGeneratedColumn('uuid')
@@ -10,5 +10,5 @@ export default class CategoriaLista
     descricao: string;
 
     @Column()
-    icon: Blob;
+    icon: string;
 }

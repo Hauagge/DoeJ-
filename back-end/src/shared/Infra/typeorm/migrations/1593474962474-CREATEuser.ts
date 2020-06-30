@@ -49,7 +49,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name: 'foto',
-                            type: 'bytea',
+                            type: 'varchar',
                         },
                         {
                             name: 'login',
@@ -65,7 +65,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name: 'saldo',
-                            type: 'double',
+                            type: 'NUMERIC(9, 2)',
                             default: '0',
                         },
                         {
@@ -74,11 +74,11 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
                         },
                         {
                             name: 'fotoDoc_frente',
-                            type:'bytea',
+                            type:'varchar',
                         },
                         {
                             name: 'fotoDoc_verso',
-                            type:'bytea',
+                            type:'varchar',
                         },
                         {
                             name: 'identifier_ID',

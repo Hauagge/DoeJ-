@@ -2,7 +2,7 @@ import {Entity, PrimaryGeneratedColumn, ManyToOne, Column, CreateDateColumn} fro
 import User from "./User";
 
 
-@Entity()
+@Entity('Voucher')
 export default class Voucher 
 {
     @PrimaryGeneratedColumn('uuid')

@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export default class CREATEtag1593293053249 implements MigrationInterface {
+export default class CREATEtag1593474788113 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -25,7 +25,7 @@ export default class CREATEtag1593293053249 implements MigrationInterface {
                         },
                         {
                             name: 'foto',
-                            type: 'bytea',                            
+                            type: 'varchar',                            
                         }
 
                     ]

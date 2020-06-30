@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEimgProduto1593305681621 implements MigrationInterface {
+export default class CREATEimgProduto1593475173101 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -10,8 +10,15 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
                     name:'ImgProduto',
                     columns:[
                         {
+                            name:'ID',
+                            type:'uuid',
+                            default:'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid',
+                        },
+                        {
                             name:'img',
-                            type:'bytea', 
+                            type:'varchar', 
                         },
                         {
                             name:'descricao',

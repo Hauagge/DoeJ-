@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class voucher1593299446927 implements MigrationInterface {
+export default class CREATEvoucher1593475598003 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {

@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export default class CREATEcategoriaLista1593307198848 implements MigrationInterface {
+export default class CREATEcategoriaLista1593475283380 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -22,7 +22,7 @@ export default class CREATEcategoriaLista1593307198848 implements MigrationInter
                         },
                         {
                             name:'icon',
-                            type:'bytea'
+                            type:'varchar'
                         }
                     ]
                 }

@@ -29,7 +29,7 @@ export default class User
     updateDate: Date;
 
     @Column()
-    foto: Blob;
+    foto: string;
 
     @Column()
     login: string;
@@ -47,10 +47,10 @@ export default class User
     nascimento: Date;
 
     @Column()
-    fotoDoc_frente: Blob;
+    fotoDoc_frente: string;
 
     @Column()
-    fotoDoc_verso: Blob;
+    fotoDoc_verso: string;
 
     @ManyToOne(type => Identificador, identificador => identificador.ID)
     identifier_ID: Identificador;

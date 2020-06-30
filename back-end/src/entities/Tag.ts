@@ -1,6 +1,6 @@
 import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
 
-@Entity()
+@Entity('Tag')
 export default class Tag 
 {
     @PrimaryGeneratedColumn('uuid')
@@ -10,6 +10,6 @@ export default class Tag
     descricao: string;
 
     @Column()
-    foto: Blob;
+    foto: string;
     
 }
