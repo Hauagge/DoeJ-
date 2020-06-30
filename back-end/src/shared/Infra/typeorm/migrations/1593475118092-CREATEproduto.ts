@@ -33,11 +33,11 @@ export default class CREATEproduto1593475118092 implements MigrationInterface {
                         },
                         {
                             name:'user_ID',
-                            type:'varchar',
+                            type:'uuid',
                         },
                         {
                             name:'marca_ID',
-                            type:'varchar',
+                            type:'uuid',
                         }
                     ]
                 }

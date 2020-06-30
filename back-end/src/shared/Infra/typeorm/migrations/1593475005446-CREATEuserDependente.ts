@@ -21,12 +21,12 @@ export default class CREATEuserDependente1593475005446 implements MigrationInter
                         },
                         {
                             name:'user_ID',
-                            type:'varchar',
+                            type:'uuid',
                             isNullable: false,
                         },
                         {
                             name:'dependente_ID',
-                            type:'varchar',
+                            type:'uuid',
                             isNullable: false,
                         }
                     ]
@@ -41,22 +41,35 @@ export default class CREATEuserDependente1593475005446 implements MigrationInter
                 new TableForeignKey
                 (
                     {
-                        name: 'FK_ID',
-                        columnNames:['user_ID','dependente_ID'],
+                        name: 'FKUSER_ID',
+                        columnNames:['user_ID'],
                         referencedColumnNames: ['ID'],
                         referencedTableName: 'User',
                         onDelete: 'CASCADE'
                     }
                 )
         );
-
+        
+        await queryRunner.createForeignKey('UserDependente',
+        new TableForeignKey
+        (
+            {
+                name: 'FKDEPENDENTE_ID',
+                columnNames:['dependente_ID'],
+                referencedColumnNames: ['ID'],
+                referencedTableName: 'User',
+                onDelete: 'CASCADE'
+            }
+        )
+);
 
 
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
-        await queryRunner.dropForeignKey('UserDependente','FK_ID');
+        await queryRunner.dropForeignKey('UserDependente','FKUSER_ID');
+        await queryRunner.dropForeignKey('UserDependente','FKDEPENDENTE_ID');
         await queryRunner.dropTable('UserDependente');
     }
 

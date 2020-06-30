@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export default class CREATEmarca1593303920749 implements MigrationInterface {
+export default class CREATEmarca1593475078269 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {

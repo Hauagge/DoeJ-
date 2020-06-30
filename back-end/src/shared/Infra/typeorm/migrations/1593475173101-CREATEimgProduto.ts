@@ -26,7 +26,7 @@ export default class CREATEimgProduto1593475173101 implements MigrationInterface
                         },
                         {
                            name:'produto_ID',
-                           type:'varchar',
+                           type:'uuid',
                         }
                     ]
                 }

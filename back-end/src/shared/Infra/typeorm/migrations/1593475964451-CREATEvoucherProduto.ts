@@ -18,11 +18,11 @@ export default class CREATEvoucherProduto1593475964451 implements MigrationInter
                         },
                         {
                             name:'voucher_ID',
-                            type:'varchar',
+                            type:'uuid',
                         },
                         {
                             name:'produto_ID',
-                            type:'varchar'
+                            type:'uuid'
                         }
                     ]
                 }
