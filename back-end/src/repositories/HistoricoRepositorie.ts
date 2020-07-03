@@ -3,7 +3,8 @@ import Historico from '../entities/Historico';
 import User from '../entities/User';
 
 
-interface ArrayHistorico {
+interface ArrayHistorico 
+{
     arrayHistorico: Array<Historico>;
 }
 
