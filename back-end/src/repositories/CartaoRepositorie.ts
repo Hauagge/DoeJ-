@@ -11,7 +11,7 @@ class TransactionsRepository extends Repository<Cartao>
 {
     public async createCartao(cartao: Cartao): Promise<void>
     {
-        await this.save(cartao);
+        await this.create(cartao);
     }
 
     public async updateCartao(cartao: Cartao, newCartao: Cartao): Promise<void>

@@ -13,7 +13,7 @@ class TransactionsRepository extends Repository<Historico>
 {
     public async createHistorico(historico: Historico): Promise<void>
     {
-        await this.save(historico);
+        await this.create(historico);
     }
 
     public async deleteHistorico(historico: Historico): Promise<void>

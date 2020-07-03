@@ -12,7 +12,7 @@ class TransactionsRepository extends Repository<Marca>
 {
     public async createMarca(marca:Marca): Promise<void>
     {
-        await this.save(marca);
+        await this.create(marca);
     }
 
     public async deleteMarca(marca:Marca): Promise<void>
