@@ -15,7 +15,7 @@ class TransactionsRepository extends Repository<Produto>
 {
     public async createProduto(produto: Produto): Promise<void>
     {
-        await this.save(produto); 
+        await this.create(produto); 
     }
 
     public async deleteProduto(produto: Produto): Promise<void>

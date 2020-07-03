@@ -3,7 +3,8 @@ import Historico from '../entities/Historico';
 import User from '../entities/User';
 
 
-interface ArrayHistorico {
+interface ArrayHistorico 
+{
     arrayHistorico: Array<Historico>;
 }
 
@@ -13,7 +14,7 @@ class TransactionsRepository extends Repository<Historico>
 {
     public async createHistorico(historico: Historico): Promise<void>
     {
-        await this.save(historico);
+        await this.create(historico);
     }
 
     public async deleteHistorico(historico: Historico): Promise<void>

@@ -13,7 +13,7 @@ class TransactionsRepository extends Repository<ImgProduto>
 {
     public async createImgProduto(imgProduto: ImgProduto): Promise<void>
     {
-        await this.save(imgProduto);
+        await this.create(imgProduto);
     }
 
     public async deleteImgProduto(imgProduto: ImgProduto): Promise<void>
