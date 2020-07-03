@@ -17,6 +17,11 @@ class TransactionsRepository extends Repository<VoucherProduto>
         await this.create(voucherProduto);
     }
 
+    public async deleteVoucherProduto(voucherProduto :VoucherProduto):Promise<void>
+    {
+        await this.delete(voucherProduto);
+    }
+
     public async getVoucherProdutoByVoucher(voucher:Voucher):Promise<ArrayVoucherProduto>
     {
         var list:ArrayVoucherProduto = {arrayVoucherProduto:new Array<VoucherProduto>()}

@@ -17,6 +17,11 @@ class TransactionsRepository extends Repository<ProdutoLista>
         await this.create(produtoLista);
     }
 
+    public async deleteProdutoLista(produtoLista:ProdutoLista):Promise<void>
+    {
+        await this.delete(produtoLista);
+    }
+
     public async getProdutoListaByProduto(produto:Produto):Promise<ArrayProdutoLista>
     {
         var list:ArrayProdutoLista = {arrayProdutoLista:new Array<ProdutoLista>()};

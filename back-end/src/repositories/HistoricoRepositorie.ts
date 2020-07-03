@@ -8,7 +8,6 @@ interface ArrayHistorico
     arrayHistorico: Array<Historico>;
 }
 
-
 @EntityRepository(Historico)
 class TransactionsRepository extends Repository<Historico> 
 {
