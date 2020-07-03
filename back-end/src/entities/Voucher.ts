@@ -22,4 +22,7 @@ export default class Voucher
 
     @ManyToOne(type => User, user => user.ID)
     userGen_ID: User;
+
+    @ManyToOne(type => User, user => user.ID)
+    userOwn_ID: User;
 }
