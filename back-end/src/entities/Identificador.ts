@@ -1,12 +1,10 @@
-import {Entity, PrimaryColumn, Column, ManyToOne} from "typeorm";
-
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity('Identificador')
-export default class Identificador 
-{
-    @PrimaryColumn()
-    ID: number;
+export default class Identificador {
+  @PrimaryColumn()
+  ID: number;
 
-    @Column()
-    nome: string;
+  @Column()
+  nome: string;
 }

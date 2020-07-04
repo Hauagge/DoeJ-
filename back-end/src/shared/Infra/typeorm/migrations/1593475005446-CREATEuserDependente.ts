@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, Column, TableForeignKey} from "typeorm";
 
-export default class CREATEuserDependente1593292335963 implements MigrationInterface {
+export default class CREATEuserDependente1593475005446 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -13,13 +13,20 @@ export default class CREATEuserDependente1593292335963 implements MigrationInter
                     columns:
                     [
                         {
+                            name: 'ID',
+                            type: 'uuid',
+                            default: 'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid'
+                        },
+                        {
                             name:'user_ID',
-                            type:'varchar',
+                            type:'uuid',
                             isNullable: false,
                         },
                         {
                             name:'dependente_ID',
-                            type:'varchar',
+                            type:'uuid',
                             isNullable: false,
                         }
                     ]
@@ -34,21 +41,37 @@ export default class CREATEuserDependente1593292335963 implements MigrationInter
                 new TableForeignKey
                 (
                     {
-                        columnNames:['user_ID','dependente_ID'],
+                        name: 'FKUSER_ID',
+                        columnNames:['user_ID'],
                         referencedColumnNames: ['ID'],
                         referencedTableName: 'User',
                         onDelete: 'CASCADE'
                     }
                 )
         );
-
+        
+        await queryRunner.createForeignKey('UserDependente',
+        new TableForeignKey
+        (
+            {
+                name: 'FKDEPENDENTE_ID',
+                columnNames:['dependente_ID'],
+                referencedColumnNames: ['ID'],
+                referencedTableName: 'User',
+                onDelete: 'CASCADE'
+            }
+        )
+);
 
 
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('UserDependente','FKUSER_ID');
+        await queryRunner.dropForeignKey('UserDependente','FKDEPENDENTE_ID');
         await queryRunner.dropTable('UserDependente');
     }
 
 }
+

@@ -1,4 +1,4 @@
-import { MigrationInterface, QueryRunner, Table, Column } from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CREATEidentificador1593290573475
   implements MigrationInterface {
@@ -9,10 +9,8 @@ export default class CREATEidentificador1593290573475
         columns: [
           {
             name: 'ID',
-            type: 'uuid',
+            type: 'integer',
             isPrimary: true,
-            generationStrategy: 'uuid',
-            default: 'uuid_generate_v4()',
           },
           {
             name: 'nome',

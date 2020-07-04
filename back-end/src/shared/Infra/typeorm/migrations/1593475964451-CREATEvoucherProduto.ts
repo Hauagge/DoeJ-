@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEvoucherProduto1593311547371 implements MigrationInterface {
+export default class CREATEvoucherProduto1593475964451 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void>
     {
@@ -10,12 +10,19 @@ export default class CREATEvoucherProduto1593311547371 implements MigrationInter
                     name:'VoucherProduto',
                     columns:[
                         {
+                            name: 'ID',
+                            type: 'uuid',
+                            default: 'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid'
+                        },
+                        {
                             name:'voucher_ID',
-                            type:'varchar',
+                            type:'uuid',
                         },
                         {
                             name:'produto_ID',
-                            type:'varchar'
+                            type:'uuid'
                         }
                     ]
                 }
@@ -26,6 +33,7 @@ export default class CREATEvoucherProduto1593311547371 implements MigrationInter
         new TableForeignKey
         (
             {
+                name: 'FKVOUCHER_ID',
                 columnNames:['voucher_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Voucher',
@@ -38,6 +46,7 @@ export default class CREATEvoucherProduto1593311547371 implements MigrationInter
         new TableForeignKey
         (
             {
+                name: 'FKPRODUTO_ID',
                 columnNames:['produto_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Produto',
@@ -49,6 +58,8 @@ export default class CREATEvoucherProduto1593311547371 implements MigrationInter
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('VoucherProduto','FKVOUCHER_ID');
+        await queryRunner.dropForeignKey('VoucherProduto','FKPRODUTO_ID');
         await queryRunner.dropTable('VoucherProduto');
     }
 

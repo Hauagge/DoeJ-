@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEimgProduto1593305681621 implements MigrationInterface {
+export default class CREATEimgProduto1593475173101 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -10,8 +10,15 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
                     name:'ImgProduto',
                     columns:[
                         {
+                            name:'ID',
+                            type:'uuid',
+                            default:'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid',
+                        },
+                        {
                             name:'img',
-                            type:'bytea', 
+                            type:'varchar', 
                         },
                         {
                             name:'descricao',
@@ -19,7 +26,7 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
                         },
                         {
                            name:'produto_ID',
-                           type:'varchar',
+                           type:'uuid',
                         }
                     ]
                 }
@@ -30,6 +37,7 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
         new TableForeignKey
         (
             {
+                name:'FK_ID',
                 columnNames:['produto_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Produto',
@@ -42,6 +50,7 @@ export default class CREATEimgProduto1593305681621 implements MigrationInterface
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('ImgProduto','FK_ID');
         await queryRunner.dropTable('ImgProduto');
     }
 

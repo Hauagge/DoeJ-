@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEitem1593311174912 implements MigrationInterface 
+export default class CREATEitem1593475498423 implements MigrationInterface 
 {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
@@ -12,12 +12,19 @@ export default class CREATEitem1593311174912 implements MigrationInterface
                     columns:
                     [
                         {
-                            name: 'produto_ID',
-                            type:'varchar',
+                            name: 'ID',
+                            type: 'uuid',
+                            default: 'uuid_generate_v4()',
+                            isPrimary: true,
+                            generationStrategy: 'uuid'
                         },
                         {
-                            name:'lista_TD',
-                            type:'varchar'
+                            name: 'produto_ID',
+                            type:'uuid',
+                        },
+                        {
+                            name:'lista_ID',
+                            type:'uuid'
                         },
                         {
                             name: 'quantidade',
@@ -25,7 +32,7 @@ export default class CREATEitem1593311174912 implements MigrationInterface
                         },
                         {
                             name:'desconto',
-                            type: 'double'
+                            type: 'NUMERIC(4, 2)'
                         }
 
                     ]
@@ -37,6 +44,7 @@ export default class CREATEitem1593311174912 implements MigrationInterface
         new TableForeignKey
         (
             {
+                name: 'FKPRODUTO_ID',
                 columnNames:['produto_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Produto',
@@ -49,6 +57,7 @@ export default class CREATEitem1593311174912 implements MigrationInterface
         new TableForeignKey
         (
             {
+                name: 'FKLISTA_ID',
                 columnNames:['lista_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'Lista',
@@ -60,6 +69,10 @@ export default class CREATEitem1593311174912 implements MigrationInterface
 
     public async down(queryRunner: QueryRunner): Promise<void> 
     {
+        await queryRunner.dropForeignKey('Item','FKPRODUTO_ID');
+        await queryRunner.dropForeignKey('Item','FKLISTA_ID');
+        await queryRunner.dropTable('Item');
+
     }
 
 }

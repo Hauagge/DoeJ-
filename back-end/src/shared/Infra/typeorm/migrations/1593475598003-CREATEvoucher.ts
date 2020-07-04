@@ -1,6 +1,6 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class voucher1593299446927 implements MigrationInterface {
+export default class CREATEvoucher1593475598003 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> 
     {
@@ -35,7 +35,7 @@ export default class voucher1593299446927 implements MigrationInterface {
                     },
                     {
                         name:'userGen_ID',
-                        type:'varchar',
+                        type:'uuid',
                     }
 
                 ]
@@ -45,6 +45,7 @@ export default class voucher1593299446927 implements MigrationInterface {
         new TableForeignKey
         (
             {
+                name: 'FK_ID',
                 columnNames:['userGen_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
@@ -56,6 +57,7 @@ export default class voucher1593299446927 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void>
     {
+        await queryRunner.dropForeignKey('Voucher','FK_ID');
         await queryRunner.dropTable('Voucher');
     }
 

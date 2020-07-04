@@ -2,11 +2,9 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  UpdateDateColumn,
   CreateDateColumn,
-  OneToOne,
+  ManyToOne,
 } from 'typeorm';
-
 import Identificador from './Identificador';
 
 @Entity('user')
@@ -32,11 +30,8 @@ export default class User {
   @Column()
   endereco: string;
 
-  @UpdateDateColumn()
-  updateDate: Date;
-
   @Column()
-  foto: Blob;
+  foto: string;
 
   @Column()
   login: string;
@@ -51,14 +46,11 @@ export default class User {
   saldo: number;
 
   @Column()
-  nascimento: Date;
+  fotoDoc_frente: string;
 
   @Column()
-  fotoDoc_frente: Blob;
+  fotoDoc_verso: string;
 
-  @Column()
-  fotoDoc_verso: Blob;
-
-  @OneToOne(() => Identificador, identificador => identificador.ID)
+  @ManyToOne(() => Identificador, identificador => identificador.ID)
   identifier_ID: Identificador;
 }
