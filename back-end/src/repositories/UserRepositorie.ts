@@ -1,19 +1,21 @@
 import { EntityRepository, Repository } from 'typeorm';
 import User from '../entities/User';
 
+
 @EntityRepository(User)
 class TransactionsRepository extends Repository<User> 
-{
+{ 
   
-  public async setSaldo( conta:User, Valor:number): Promise<void>
+  public async setSaldo( Conta:User, Valor:number): Promise<void>
   {
     // const conta = await this.findOne(
     //     {
     //         where:{email}
     //     })
 
-    conta.saldo += Valor;
-    await this.save(conta);     
+
+    Conta.saldo += Valor;
+    this.save(Conta);     
   }  
 
   //fazer uma controladora para ver se o documento realmente esta valido, tanto CPF quanto CNPJ
