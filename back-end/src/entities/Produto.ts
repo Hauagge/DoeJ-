@@ -16,7 +16,7 @@ export default class Produto {
   @Column()
   quantidade: number;
 
-  @ManyToOne(() => User, user => user.id)
+  @ManyToOne(() => User, user => user.ID)
   user_ID: User;
 
   @ManyToOne(() => Marca, marca => marca.ID)
