@@ -69,8 +69,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
           },
           {
             name: 'saldo',
-            type: 'double',
-            default: '0',
+            type: 'NUMERIC(9, 2)',
           },
           {
             name: 'nascimento',
@@ -89,7 +88,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
           },
           {
             name: 'identifier_ID',
-            type: 'varchar',
+            type: 'integer',
           },
         ],
       }),
