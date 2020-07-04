@@ -1,58 +1,59 @@
-import {Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn, ManyToOne} from "typeorm";
-import Identificador from "./Identificador";
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  ManyToOne,
+} from 'typeorm';
+import Identificador from './Identificador';
 
-@Entity('User')
-export default class User
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+@Entity('user')
+export default class User {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @Column()
-    docID: string;
+  @Column()
+  nome: string;
 
-    @Column()
-    nome: string;
+  @Column()
+  docID: string;
 
-    @Column()
-    email: string;
+  @Column()
+  email: string;
 
-    @Column()
-    telefoneOpc: string;
+  @Column()
+  telefoneOpc: string;
 
-    @Column()
-    telefoneMov: string;
+  @Column()
+  nascimento: string;
 
-    @Column()
-    endereco: string;
+  @Column()
+  telefoneMov: string;
 
-    @UpdateDateColumn()
-    updateDate: Date;
+  @Column()
+  endereco: string;
 
-    @Column()
-    foto: string;
+  @Column()
+  foto: string;
 
-    @Column()
-    login: string;
+  @Column()
+  login: string;
 
-    @Column()
-    senha: string;
+  @Column()
+  senha: string;
 
-    @CreateDateColumn()
-    createDate: Date;
+  @CreateDateColumn()
+  createDate: Date;
 
-    @Column()
-    saldo: number;
+  @Column()
+  saldo: number;
 
-    @Column()
-    nascimento: Date;
+  @Column()
+  fotoDoc_frente: string;
 
-    @Column()
-    fotoDoc_frente: string;
+  @Column()
+  fotoDoc_verso: string;
 
-    @Column()
-    fotoDoc_verso: string;
-
-    @ManyToOne(type => Identificador, identificador => identificador.ID)
-    identifier_ID: Identificador;
-
+  @ManyToOne(() => Identificador, identificador => identificador.ID)
+  identifier_ID: Identificador;
 }

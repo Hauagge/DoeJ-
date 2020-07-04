@@ -1,36 +1,27 @@
-import {MigrationInterface, QueryRunner, Table, Column} from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CREATEidentificador1593474734176 implements MigrationInterface 
-{
+export default class CREATEidentificador1593290573475
+  implements MigrationInterface {
+  public async up(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.createTable(
+      new Table({
+        name: 'Identificador',
+        columns: [
+          {
+            name: 'ID',
+            type: 'integer',
+            isPrimary: true,
+          },
+          {
+            name: 'nome',
+            type: 'varchar',
+          },
+        ],
+      }),
+    );
+  }
 
-    public async up(queryRunner: QueryRunner): Promise<void> 
-    {
-        await queryRunner.createTable
-        (
-            new Table
-            (
-                {
-                    name:'Identificador',
-                    columns:
-                    [
-                        {
-                            name:'ID',
-                            type:'integer',
-                            isPrimary: true,
-                        },
-                        {
-                            name:'nome',                         
-                            type:'varchar',
-                        }
-                    ]
-                }
-            )                      
-        );
-    }
-
-    public async down(queryRunner: QueryRunner): Promise<void> 
-    {
-        await queryRunner.dropTable('Identificador');
-    }
-
+  public async down(queryRunner: QueryRunner): Promise<void> {
+    await queryRunner.dropTable('Identificador');
+  }
 }

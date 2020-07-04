@@ -1,14 +1,13 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('CategoriaLista')
-export default class CategoriaLista
-{   
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+export default class CategoriaLista {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @Column()
-    descricao: string;
+  @Column()
+  descricao: string;
 
-    @Column()
-    icon: string;
+  @Column()
+  icon: string;
 }

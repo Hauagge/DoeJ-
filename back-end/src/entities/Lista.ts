@@ -1,28 +1,27 @@
-import {Entity, PrimaryGeneratedColumn, Column, ManyToOne} from "typeorm";
-import User from "./User";
-import CategoriaLista from "./CategoriaLista";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import User from './User';
+import CategoriaLista from './CategoriaLista';
 
 @Entity('Lista')
-export default class Lista 
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+export default class Lista {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @Column()
-    descricao: string;
+  @Column()
+  descricao: string;
 
-    @Column()
-    dateCreate: Date;
+  @Column()
+  dateCreate: Date;
 
-    @Column()
-    dateDonate: Date;
+  @Column()
+  dateDonate: Date;
 
-    @Column()
-    userDonator_ID: string;
+  @Column()
+  userDonator_ID: string;
 
-    @ManyToOne(type => CategoriaLista, categoriaLista => categoriaLista.ID)
-    categoriaLista_ID: CategoriaLista;
+  @ManyToOne(() => CategoriaLista, categoriaLista => categoriaLista.ID)
+  categoriaLista_ID: CategoriaLista;
 
-    @ManyToOne(type => User, user => user.ID)
-    userOwner_ID: User;
+  @ManyToOne(() => User, user => user.id)
+  userOwner_ID: User;
 }

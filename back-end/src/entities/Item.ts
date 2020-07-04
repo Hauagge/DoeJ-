@@ -1,23 +1,21 @@
-import {Entity, Column, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
-import Lista from "./Lista";
-import Produto from "./Produto";
+import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import Lista from './Lista';
+import Produto from './Produto';
 
 @Entity('Item')
-export default class Item
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+export default class Item {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @ManyToOne(type => Produto, produto => produto.ID)
-    produto_ID: Produto;
+  @ManyToOne(() => Produto, produto => produto.ID)
+  produto_ID: Produto;
 
-    @ManyToOne(type => Lista, lista => lista.ID)
-    lista_ID: Lista;
+  @ManyToOne(() => Lista, lista => lista.ID)
+  lista_ID: Lista;
 
-    @Column()
-    quantidade: number;
+  @Column()
+  quantidade: number;
 
-    @Column()
-    desconto: number;
-
+  @Column()
+  desconto: number;
 }

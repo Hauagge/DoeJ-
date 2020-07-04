@@ -1,18 +1,17 @@
-import {Entity, ManyToOne, Column, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
-import Produto from "./Produto";
+import { Entity, ManyToOne, Column, PrimaryGeneratedColumn } from 'typeorm';
+import Produto from './Produto';
 
 @Entity('ImgProduto')
-export default class ImgProduto 
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID:string;
+export default class ImgProduto {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @Column()
-    img: string;
+  @Column()
+  img: string;
 
-    @Column()
-    descricao: string;
+  @Column()
+  descricao: string;
 
-    @ManyToOne(type => Produto, produto => produto.ID)
-    produto_ID: Produto; 
+  @ManyToOne(() => Produto, produto => produto.ID)
+  produto_ID: Produto;
 }

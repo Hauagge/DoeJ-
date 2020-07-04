@@ -1,22 +1,19 @@
-import {Entity, PrimaryGeneratedColumn, ManyToOne} from "typeorm";
-import User from "./User";
-import Voucher from "./Voucher";
-
+import { Entity, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import User from './User';
+import Voucher from './Voucher';
 
 @Entity('Historico')
-export default class Historico 
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+export default class Historico {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    descricao: string;
+  descricao: string;
 
-    data: Date;
+  data: Date;
 
-    @ManyToOne(type => Voucher, voucher => voucher.ID)
-    voucher_ID: Voucher;
+  @ManyToOne(() => Voucher, voucher => voucher.ID)
+  voucher_ID: Voucher;
 
-    @ManyToOne(type => User, user => user.ID)
-    user_ID: User;
-
+  @ManyToOne(() => User, user => user.id)
+  user_ID: User;
 }

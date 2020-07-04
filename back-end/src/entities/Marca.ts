@@ -1,11 +1,10 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('Marca')
-export default class Marca 
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+export default class Marca {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @Column()
-    nome: string;
+  @Column()
+  nome: string;
 }

@@ -1,15 +1,13 @@
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity('Tag')
-export default class Tag 
-{
-    @PrimaryGeneratedColumn('uuid')
-    ID: string;
+export default class Tag {
+  @PrimaryGeneratedColumn('uuid')
+  ID: string;
 
-    @Column()
-    descricao: string;
+  @Column()
+  descricao: string;
 
-    @Column()
-    foto: string;
-    
+  @Column()
+  foto: string;
 }
