@@ -10,7 +10,7 @@ import Identificador from './Identificador';
 @Entity('user')
 export default class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  ID: string;
 
   @Column()
   nome: string;

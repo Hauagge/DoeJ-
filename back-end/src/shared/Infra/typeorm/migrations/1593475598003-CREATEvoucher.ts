@@ -36,6 +36,10 @@ export default class CREATEvoucher1593475598003 implements MigrationInterface {
                     {
                         name:'userGen_ID',
                         type:'uuid',
+                    },
+                    {
+                        name:'userOwn_ID',
+                        type:'uuid',
                     }
 
                 ]
@@ -45,8 +49,22 @@ export default class CREATEvoucher1593475598003 implements MigrationInterface {
         new TableForeignKey
         (
             {
-                name: 'FK_ID',
+                name: 'FKUSERGEN_ID',
                 columnNames:['userGen_ID'],
+                referencedColumnNames: ['ID'],
+                referencedTableName: 'User',
+                onDelete: 'CASCADE'
+            }
+        )
+        );
+
+
+        await queryRunner.createForeignKey('Voucher',
+        new TableForeignKey
+        (
+            {
+                name: 'FKUSEROWN_ID',
+                columnNames:['userOwn_ID'],
                 referencedColumnNames: ['ID'],
                 referencedTableName: 'User',
                 onDelete: 'CASCADE'
@@ -57,7 +75,8 @@ export default class CREATEvoucher1593475598003 implements MigrationInterface {
 
     public async down(queryRunner: QueryRunner): Promise<void>
     {
-        await queryRunner.dropForeignKey('Voucher','FK_ID');
+        await queryRunner.dropForeignKey('Voucher','FKUSEROWN_ID');
+        await queryRunner.dropForeignKey('Voucher','FKUSERGEN_ID');
         await queryRunner.dropTable('Voucher');
     }
 
