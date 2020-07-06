@@ -15,6 +15,7 @@ export default class CREATEidentificador1593290573475
           {
             name: 'nome',
             type: 'varchar',
+            isNullable: true,
           },
         ],
       }),

@@ -7,7 +7,7 @@ import {
 } from 'typeorm';
 import Identificador from './Identificador';
 
-@Entity('user')
+@Entity('User')
 export default class User {
   @PrimaryGeneratedColumn('uuid')
   ID: string;
@@ -51,6 +51,6 @@ export default class User {
   @Column()
   fotoDoc_verso: string;
 
-  @ManyToOne(() => Identificador, identificador => identificador.ID)
+  @ManyToOne(type => Identificador, identificador => identificador.ID)
   identifier_ID: Identificador;
 }

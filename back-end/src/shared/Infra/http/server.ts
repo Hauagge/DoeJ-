@@ -7,7 +7,6 @@ import uploadConfig from '@config/upaload';
 import '@shared/Infra/typeorm';
 import AppError from '@shared/erros/AppErros';
 import routes from './routes';
-import '@shared/container';
 
 const app = express();
 app.use(cors());

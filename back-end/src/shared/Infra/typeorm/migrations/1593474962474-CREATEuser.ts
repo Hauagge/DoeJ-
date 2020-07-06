@@ -89,7 +89,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
           },
           {
             name: 'identifier_ID',
-            type: 'varchar',
+            type: 'integer',
           },
         ],
       }),
@@ -99,7 +99,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
       'User',
       new TableForeignKey({
         name: 'FK_ID',
-        columnNames: ['Identifier_ID'],
+        columnNames: ['identifier_ID'],
         referencedColumnNames: ['ID'],
         referencedTableName: 'Identificador',
         onDelete: 'CASCADE',
