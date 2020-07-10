@@ -40,14 +40,8 @@ class CreateUserService {
       email,
       login,
       senha: hashedPassword,
+      identifier_ID,
     });
-
-    user.identifier_ID.ID = identifier_ID;
-    if (identifier_ID === 1) {
-      user.identifier_ID.nome = 'Fornecedor';
-    }
-
-    user.identifier_ID.nome = 'Usuário';
 
     await userRepository.save(user);
 
