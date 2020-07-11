@@ -7,6 +7,11 @@ interface IRequest {
   endereco: string;
   telefoneOpc: string;
   telefoneMov: string;
+  foto: string;
+  fotoDocFront: string;
+  fotoDocVerso: string;
+  docID: string;
+  nascimento: Date;
 }
 
 class UpdateUserService {
@@ -15,6 +20,11 @@ class UpdateUserService {
     endereco,
     telefoneOpc,
     telefoneMov,
+    foto,
+    fotoDocFront,
+    fotoDocVerso,
+    docID,
+    nascimento,
   }: IRequest): Promise<User> {
     const userRepository = getRepository(User);
 
@@ -27,6 +37,11 @@ class UpdateUserService {
     user.endereco = endereco;
     user.telefoneOpc = telefoneOpc;
     user.telefoneMov = telefoneMov;
+    user.foto = foto;
+    user.fotoDoc_frente = fotoDocFront;
+    user.fotoDoc_verso = fotoDocVerso;
+    user.docID = docID;
+    user.nascimento = nascimento;
 
     await userRepository.save(user);
 

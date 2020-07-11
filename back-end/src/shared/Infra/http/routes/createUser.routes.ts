@@ -1,13 +1,13 @@
 import { Router } from 'express';
-// import multer from 'multer';
-// import uploadConfig from '../../../../config/upaload';
+import multer from 'multer';
+import uploadConfig from '../../../../config/upaload';
 import ensureAuthenticate from '../../../../middleware/ensureAuthenticate';
 
 import CreateUserService from '../../../../services/CreateUserServicer';
 import UpdateUserService from '../../../../services/UpdateUserService';
 
 const userRouter = Router();
-// const upload = multer(uploadConfig);
+const upload = multer(uploadConfig);
 
 userRouter.post('/', async (request, response) => {
   try {
@@ -35,15 +35,22 @@ userRouter.post('/', async (request, response) => {
 userRouter.put(
   '/complete/:id',
   ensureAuthenticate,
+  upload.array('fotoperfil', 3),
   async (request, response) => {
-    const { endereco, telefoneOpc, telefoneMov } = request.body;
+    const { endereco, telefone1, telefone2, docID, nascimento } = request.body;
+    const foto = request.files;
     try {
       const updateUser = new UpdateUserService();
       const user = await updateUser.execute({
         id: request.params.id,
+        docID,
         endereco,
-        telefoneOpc,
-        telefoneMov,
+        telefoneOpc: telefone2,
+        telefoneMov: telefone1,
+        foto: foto[0].filename,
+        fotoDocFront: foto[1].filename,
+        fotoDocVerso: foto[2].filename,
+        nascimento,
       });
       return response.json(user);
     } catch (err) {

@@ -4,6 +4,7 @@ import {
   Column,
   CreateDateColumn,
   UpdateDateColumn,
+  Timestamp,
 } from 'typeorm';
 // import Identificador from './Identificador';
 
@@ -56,4 +57,7 @@ export default class User {
 
   @UpdateDateColumn()
   updateDate: Date;
+
+  @Column({ type: 'date' })
+  nascimento: Date;
 }
