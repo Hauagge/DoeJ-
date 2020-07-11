@@ -1,16 +1,21 @@
 import { EntityRepository, Repository } from 'typeorm';
 import User from '../entities/User';
 
-@EntityRepository(User)
-class TransactionsRepository extends Repository<User> {
-  public async setSaldo(conta: User, Valor: number): Promise<void> {
-    // const conta = await this.findOne(
-    //     {
-    //         where:{email}
-    //     })
 
+@EntityRepository(User)
+class TransactionsRepository extends Repository<User> 
+{ 
+  
+  public async setSaldo( Conta:User, Valor:number): Promise<void>
+  {
     conta.saldo += Valor;
     await this.save(conta);
+
+  }  
+
+  //fazer uma controladora para ver se o documento realmente esta valido, tanto CPF quanto CNPJ
+  public async setDocID(conta:User, newDocId:string): Promise<void>
+  {
   }
 
   // fazer uma controladora para ver se o documento realmente esta valido, tanto CPF quanto CNPJ

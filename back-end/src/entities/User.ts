@@ -26,6 +26,9 @@ export default class User {
   telefoneOpc: string;
 
   @Column()
+  nascimento: string;
+
+  @Column()
   telefoneMov: string;
 
   @Column()
