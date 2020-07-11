@@ -22,6 +22,6 @@ export default class Cartao {
   @ManyToOne(() => Bandeira, bandeira => bandeira.ID)
   bandeira_ID: Bandeira;
 
-  @ManyToOne(() => User, user => user.id)
+  @ManyToOne(() => User, user => user.ID)
   user_ID: User;
 }

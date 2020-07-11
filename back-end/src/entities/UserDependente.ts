@@ -6,9 +6,9 @@ export default class UserDependente {
   @PrimaryGeneratedColumn('uuid')
   ID: string;
 
-  @ManyToOne(() => User, user => user.id)
+  @ManyToOne(() => User, user => user.ID)
   user_ID: User;
 
-  @ManyToOne(() => User, user => user.id)
+  @ManyToOne(() => User, user => user.ID)
   dependente_ID: User;
 }

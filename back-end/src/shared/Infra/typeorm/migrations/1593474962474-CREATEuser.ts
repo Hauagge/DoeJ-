@@ -1,9 +1,4 @@
-import {
-  MigrationInterface,
-  QueryRunner,
-  Table,
-  TableForeignKey,
-} from 'typeorm';
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
 export default class CREATEuser1593193026235 implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
@@ -49,6 +44,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
           {
             name: 'updateDate',
             type: 'timestamp',
+            default: 'now()',
           },
           {
             name: 'foto',
@@ -66,10 +62,12 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
           {
             name: 'createDate',
             type: 'timestamp',
+            default: 'now()',
           },
           {
             name: 'saldo',
             type: 'NUMERIC(9, 2)',
+
           },
           {
             name: 'nascimento',
@@ -93,21 +91,9 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
         ],
       }),
     );
-
-    await queryRunner.createForeignKey(
-      'User',
-      new TableForeignKey({
-        name: 'FK_ID',
-        columnNames: ['Identifier_ID'],
-        referencedColumnNames: ['ID'],
-        referencedTableName: 'Identificador',
-        onDelete: 'CASCADE',
-      }),
-    );
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropForeignKey('User', 'FK_ID');
     await queryRunner.dropTable('User');
   }
 }

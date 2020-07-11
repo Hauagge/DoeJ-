@@ -3,17 +3,17 @@ import { hash } from 'bcryptjs';
 
 import User from '../entities/User';
 
-interface IIdenfificador {
-  id: string;
-  nome: string;
-}
+// interface IIdenfificador {
+//   ID: number;
+//   nome: string;
+// }
 
 interface IRequest {
   login: string;
   nome: string;
   email: string;
   senha: string;
-  identifier_ID: IIdenfificador;
+  identifier_ID: number;
 }
 
 class CreateUserService {
@@ -46,6 +46,7 @@ class CreateUserService {
     await userRepository.save(user);
 
     delete user.senha;
+
     return user;
   }
 }

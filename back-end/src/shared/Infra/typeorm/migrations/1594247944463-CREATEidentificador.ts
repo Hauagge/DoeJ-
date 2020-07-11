@@ -1,6 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CREATEidentificador1593290573475
+export default class CREATEidentificador1594247944463
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
@@ -8,13 +8,14 @@ export default class CREATEidentificador1593290573475
         name: 'Identificador',
         columns: [
           {
-            name: 'ID',
-            type: 'integer',
+            name: 'id',
+            type: 'decimal',
             isPrimary: true,
           },
           {
             name: 'nome',
             type: 'varchar',
+            isNullable: true,
           },
         ],
       }),

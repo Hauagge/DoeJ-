@@ -3,11 +3,12 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  ManyToOne,
+  UpdateDateColumn,
+  Timestamp,
 } from 'typeorm';
-import Identificador from './Identificador';
+// import Identificador from './Identificador';
 
-@Entity('user')
+@Entity('User')
 export default class User {
   @PrimaryGeneratedColumn('uuid')
   ID: string;
@@ -54,6 +55,12 @@ export default class User {
   @Column()
   fotoDoc_verso: string;
 
-  @ManyToOne(() => Identificador, identificador => identificador.ID)
-  identifier_ID: Identificador;
+  @Column()
+  identifier_ID: number;
+
+  @UpdateDateColumn()
+  updateDate: Date;
+
+  @Column({ type: 'date' })
+  nascimento: Date;
 }

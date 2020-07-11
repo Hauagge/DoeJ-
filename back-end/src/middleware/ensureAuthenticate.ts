@@ -2,6 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 import authConfig from '../config/auth';
 
+interface ITokenPayLoad {
+  iat: number;
+  exp: number;
+  sub: string;
+}
+
 export default function ensureAuthenticate(
   request: Request,
   response: Response,
@@ -18,6 +24,10 @@ export default function ensureAuthenticate(
   try {
     const decoded = verify(token, authConfig.jwt.secret);
 
+    const { sub } = decoded as ITokenPayLoad;
+    request.user = {
+      id: sub,
+    };
     return next();
   } catch (err) {
     throw new Error('Invalid Token');

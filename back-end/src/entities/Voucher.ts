@@ -24,14 +24,9 @@ export default class Voucher {
   @Column()
   descricao: string;
 
-<<<<<<< HEAD
-  @ManyToOne(() => User, user => user.id)
+  @ManyToOne(() => User, user => user.ID)
   userGen_ID: User;
-=======
-    @ManyToOne(type => User, user => user.ID)
-    userGen_ID: User;
 
-    @ManyToOne(type => User, user => user.ID)
-    userOwn_ID: User;
->>>>>>> 38ea76e7310432f878ce50e72565ccd0517a9d43
+  @ManyToOne(() => User, user => user.ID)
+  userOwn_ID: User;
 }

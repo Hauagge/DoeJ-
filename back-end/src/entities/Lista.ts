@@ -22,6 +22,6 @@ export default class Lista {
   @ManyToOne(() => CategoriaLista, categoriaLista => categoriaLista.ID)
   categoriaLista_ID: CategoriaLista;
 
-  @ManyToOne(() => User, user => user.id)
+  @ManyToOne(() => User, user => user.ID)
   userOwner_ID: User;
 }

@@ -1,10 +1,10 @@
-import { Entity, PrimaryColumn, Column } from 'typeorm';
-
+import { Entity, PrimaryColumn, OneToMany } from 'typeorm';
+import User from './User';
 @Entity('Identificador')
 export default class Identificador {
   @PrimaryColumn()
-  ID: number;
+  id: number;
 
-  @Column()
+  @OneToMany(() => User, user => user)
   nome: string;
 }
