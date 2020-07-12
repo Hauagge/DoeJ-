@@ -1,7 +1,7 @@
 import { EntityRepository, Repository } from 'typeorm';
 import Tag from '../entities/Tag';
 
-interface IArrayTag {
+interface ArrayTag {
   arrayTag: Array<Tag>;
 }
 

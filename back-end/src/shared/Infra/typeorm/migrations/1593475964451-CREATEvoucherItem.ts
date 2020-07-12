@@ -1,13 +1,13 @@
 import {MigrationInterface, QueryRunner, Table, TableForeignKey} from "typeorm";
 
-export default class CREATEvoucherProduto1593475964451 implements MigrationInterface {
+export default class CREATEvoucherItem1593475964451 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void>
     {
         await queryRunner.createTable(
             new Table(
                 {
-                    name:'VoucherProduto',
+                    name:'VoucherItem',
                     columns:[
                         {
                             name: 'ID',
@@ -21,7 +21,7 @@ export default class CREATEvoucherProduto1593475964451 implements MigrationInter
                             type:'uuid',
                         },
                         {
-                            name:'produto_ID',
+                            name:'item_ID',
                             type:'uuid'
                         }
                     ]
@@ -29,7 +29,7 @@ export default class CREATEvoucherProduto1593475964451 implements MigrationInter
             )
         );
 
-        await queryRunner.createForeignKey('VoucherProduto',
+        await queryRunner.createForeignKey('VoucherItem',
         new TableForeignKey
         (
             {
@@ -42,14 +42,14 @@ export default class CREATEvoucherProduto1593475964451 implements MigrationInter
         )
         );
 
-        await queryRunner.createForeignKey('VoucherProduto',
+        await queryRunner.createForeignKey('VoucherItem',
         new TableForeignKey
         (
             {
-                name: 'FKPRODUTO_ID',
-                columnNames:['produto_ID'],
+                name: 'FKITEM_ID',
+                columnNames:['item_ID'],
                 referencedColumnNames: ['ID'],
-                referencedTableName: 'Produto',
+                referencedTableName: 'Item',
                 onDelete: 'CASCADE'
             }
         )

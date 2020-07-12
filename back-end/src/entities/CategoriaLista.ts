@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import Lista from './Lista';
 
 @Entity('CategoriaLista')
 export default class CategoriaLista {
@@ -10,4 +11,8 @@ export default class CategoriaLista {
 
   @Column()
   icon: string;
+
+  @OneToMany(() => Lista, lista => lista.categoriaLista)
+  lista: Lista;
+
 }

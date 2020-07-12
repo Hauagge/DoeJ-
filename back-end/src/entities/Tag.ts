@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import UserTag from './UserTag';
 
 @Entity('Tag')
 export default class Tag {
@@ -10,4 +11,7 @@ export default class Tag {
 
   @Column()
   foto: string;
+
+  @OneToMany(() => UserTag, userTag => userTag.tag)
+  userTag: UserTag[];
 }

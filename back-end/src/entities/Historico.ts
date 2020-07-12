@@ -11,9 +11,9 @@ export default class Historico {
 
   data: Date;
 
-  @ManyToOne(() => Voucher, voucher => voucher.ID)
-  voucher_ID: Voucher;
+  @ManyToOne(() => Voucher, voucher => voucher.historico)
+  voucher: Voucher;
 
-  @ManyToOne(() => User, user => user.ID)
-  user_ID: User;
+  @ManyToOne(() => User, user => user.historico)
+  user: User;
 }

@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
 import User from './User';
 import CategoriaLista from './CategoriaLista';
+import Item from './Item';
 
 @Entity('Lista')
 export default class Lista {
@@ -19,9 +20,12 @@ export default class Lista {
   @Column()
   userDonator_ID: string;
 
-  @ManyToOne(() => CategoriaLista, categoriaLista => categoriaLista.ID)
-  categoriaLista_ID: CategoriaLista;
+  @ManyToOne(() => CategoriaLista, categoriaLista => categoriaLista.lista)
+  categoriaLista: CategoriaLista;
 
-  @ManyToOne(() => User, user => user.ID)
-  userOwner_ID: User;
+  @ManyToOne(() => User, user => user.userOwnerLista)
+  userOwner: User;
+
+  @OneToMany(() => Item, item => item.lista)
+  item: Item[];
 }

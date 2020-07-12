@@ -45,6 +45,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
             name: 'updateDate',
             type: 'timestamp',
             default: 'now()',
+            isNullable: true,
           },
           {
             name: 'foto',
@@ -67,7 +68,7 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
           {
             name: 'saldo',
             type: 'NUMERIC(9, 2)',
-
+            default: '0',
           },
           {
             name: 'nascimento',

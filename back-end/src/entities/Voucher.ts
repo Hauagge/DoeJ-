@@ -4,8 +4,11 @@ import {
   ManyToOne,
   Column,
   CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import User from './User';
+import Historico from './Historico';
+import VoucherItem from './VoucherItem';
 
 @Entity('Voucher')
 export default class Voucher {
@@ -29,4 +32,10 @@ export default class Voucher {
 
   @ManyToOne(() => User, user => user.ID)
   userOwn_ID: User;
+
+  @OneToMany(() => Historico, historico => historico.voucher)
+  historico: Historico[];
+
+  @OneToMany(() => VoucherProduto, historico => historico.voucher)
+ 
 }

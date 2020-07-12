@@ -32,15 +32,11 @@ export default class CREATElista1593475456617 implements MigrationInterface {
             type: 'timestamp',
           },
           {
-            name: 'userDonator_ID',
+            name: 'userOwner_ID',
             type: 'uuid',
           },
           {
             name: 'categoriaLista_ID',
-            type: 'uuid',
-          },
-          {
-            name: 'user_ID',
             type: 'uuid',
           },
         ],
@@ -62,7 +58,7 @@ export default class CREATElista1593475456617 implements MigrationInterface {
       'Lista',
       new TableForeignKey({
         name: 'FKUSER_ID',
-        columnNames: ['user_ID'],
+        columnNames: ['userOwner_ID'],
         referencedColumnNames: ['ID'],
         referencedTableName: 'User',
         onDelete: 'CASCADE',

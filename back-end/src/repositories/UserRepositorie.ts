@@ -8,8 +8,8 @@ class TransactionsRepository extends Repository<User>
   
   public async setSaldo( Conta:User, Valor:number): Promise<void>
   {
-    conta.saldo += Valor;
-    await this.save(conta);
+    Conta.saldo += Valor;
+    await this.save(Conta);
 
   }  
 
@@ -18,8 +18,6 @@ class TransactionsRepository extends Repository<User>
   {
   }
 
-  // fazer uma controladora para ver se o documento realmente esta valido, tanto CPF quanto CNPJ
-  public async setDocID(conta: User, newDocId: string): Promise<void> {}
 
   public async updateUser(conta: User, novaConta: User): Promise<void> {
     if (novaConta.nome != null) conta.nome = novaConta.nome;
