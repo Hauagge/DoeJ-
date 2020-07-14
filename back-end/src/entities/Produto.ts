@@ -3,6 +3,7 @@ import User from './User';
 import Marca from './Marca';
 import ImgProduto from './ImgProduto';
 import Item from './Item';
+import VoucherItem from './VoucherItem';
 
 @Entity('Produto')
 export default class Produto {
@@ -29,4 +30,7 @@ export default class Produto {
 
   @OneToMany(() => Item, item => item.produto)
   item: Item[];
+
+  @OneToMany(() => VoucherItem, voucherItem => voucherItem.produto)
+  voucherItem : VoucherItem[];
 }

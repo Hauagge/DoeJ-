@@ -36,6 +36,7 @@ export default class Voucher {
   @OneToMany(() => Historico, historico => historico.voucher)
   historico: Historico[];
 
-  @OneToMany(() => VoucherProduto, historico => historico.voucher)
+  @OneToMany(() => VoucherItem, voucherItem => voucherItem.voucher)
+  voucherItem: VoucherItem[];
  
 }

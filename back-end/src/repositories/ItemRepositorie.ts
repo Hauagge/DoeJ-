@@ -34,7 +34,7 @@ class TransactionsRepository extends Repository<Item>
     public async getItemByLista(lista:Lista):Promise<ArrayItem>
     {
         var list:ArrayItem = {arrayItem: new Array<Item>()};
-        list.arrayItem = await this.find({where:{lista_ID:lista.ID}});
+        list.arrayItem = await this.find({where:{lista:lista.ID}});
         return list;
     }
     
