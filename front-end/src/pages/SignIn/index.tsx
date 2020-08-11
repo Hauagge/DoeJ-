@@ -25,7 +25,7 @@ interface SignInFormData {
 const SignIn: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
 
-    const {singIn} = useAuth();
+    const {signIn} = useAuth();
     const {addToast} = useToast();
 
     const history = useHistory();
@@ -45,7 +45,7 @@ const SignIn: React.FC = () => {
 				abortEarly: false
             });
 
-            await singIn({
+            await signIn({
                 email: data.email,
                 password: data.password,
 
@@ -67,7 +67,7 @@ const SignIn: React.FC = () => {
                 description: 'Ocorreu um erro ao fazer login, cheque as credenciais'
             });
 		}
-    }, [singIn, addToast, history]);
+    }, [signIn, addToast, history]);
 
     return (
 	<Container>
@@ -76,7 +76,7 @@ const SignIn: React.FC = () => {
 			<img src={logoImg} alt="GoBarber" />
 
 			<Form ref = {formRef}onSubmit={handleSubmit}>
-				<h1>Faça seu logon</h1>
+				<h1>Faça seu login</h1>
 
 				<Input name="email" icon={FiMail} placeholder="E-mail" />
 				<Input

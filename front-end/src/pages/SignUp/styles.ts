@@ -48,14 +48,14 @@ export const AnimationContainer = styled.div`
 		}
 
 		a {
-			color: #f4ede8;
+			color: #fff;
 			display: block;
 			margin-top: 24px;
 			text-decoration: none;
 			transition: color 0.2s;
 
 			&:hover {
-				color: ${shade(0.2, '#f4ede8')};
+				color: ${shade(0.2, '#fff')};
 			}
 		}
 	}
@@ -83,4 +83,5 @@ export const Background = styled.div`
 	flex: 1;
 	background: url(${signUpBackground}) no-repeat center;
 	background-size: cover;
+	opacity: 0.5;
 `;

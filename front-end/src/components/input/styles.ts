@@ -12,13 +12,13 @@ export const Container =
 	styled.div <
 	ContainerProps >
 	`
-	background: #232129;
+	background: #4A69BD;
 	border-radius: 10px;
 	padding: 16px;
     width: 100%;
 
-	border: 2px solid #232129;
-	color: #666360;
+	border: 2px solid #4A69BD;
+	color: #fff;
 
 	display: flex;
 	align-items: center;
@@ -32,11 +32,11 @@ export const Container =
     ${(props) =>
 		props.isFocused &&
 		css`
-			color: #ff9000;
-			border-color: #ff9000;
+			color: #0000dd;
+			border-color: #0000dd;
 		`}
 
-    ${(props) => props.isFilled && css`color: #ff9000;`}
+    ${(props) => props.isFilled && css`color: #0000dd;`}
 
 
 	input {
@@ -46,7 +46,7 @@ export const Container =
 		color: #f4ede8;
 
 		&::placeholder {
-			color: #666360;
+			color: #fff;
 		}
 	}
 
