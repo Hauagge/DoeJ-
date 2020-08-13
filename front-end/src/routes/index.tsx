@@ -8,6 +8,7 @@ import SignUp from '../pages/SignUp';
 
 import Dashboard from '../pages/Dashboard';
 import Donate from '../pages/Donate';
+import DirectDonation from '../pages/DirectDonation';
 
 const Routes: React.FC = () => (
 	<Switch>
@@ -16,6 +17,8 @@ const Routes: React.FC = () => (
 
 		<Route path="/dashboard" component={Dashboard} /*  isPrivate  */ />
 		<Route path="/donate" component={Donate} /*  isPrivate  */ />
+		<Route path="/directdonation" component={DirectDonation} /*  isPrivate  */ />
+
 	</Switch>
 );
 

@@ -7,7 +7,7 @@ export const Container = styled.aside`
 	flex-shrink: 0;
 	align-items: center;
 	width: 240px;
-	height: 86.7vh;
+	height: 100vh;
 	background: #1e3799;
 	flex-direction: column;
 	box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);

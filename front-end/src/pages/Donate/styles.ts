@@ -10,6 +10,8 @@ export const Content = styled.main`
 export const MainContent = styled.div`display: flex;`;
 
 export const Card = styled(NavLink)`
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
 	height: 80%;
 	width: 25.25vw;
@@ -23,14 +25,14 @@ export const Card = styled(NavLink)`
 
 
 	strong {
-		margin-top: 14px;
+		margin-top: 30px;
 		font-size: 20px;
 		font-weight: bold;
 		line-height: 54px;
 	}
 
     img {
-        margin-top: 30px;
+        margin-top: 90px;
         height: 180px;
     }
 
@@ -43,7 +45,7 @@ export const Card = styled(NavLink)`
     }
 
     p {
-        margin-top: 15px;
+        margin-top: 60px;
     }
 
 	&:hover {

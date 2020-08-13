@@ -9,7 +9,7 @@ import FutureCause from '../../assets/FutureCause.svg';
 import SideMenu from '../../components/sideMenu';
 import Header from '../../components/header';
 
-const Dashboard: React.FC = () => {
+const Donate: React.FC = () => {
 	return (
 		<Container>
 			<Header />
@@ -51,4 +51,4 @@ const Dashboard: React.FC = () => {
 	);
 };
 
-export default Dashboard;
+export default Donate;
