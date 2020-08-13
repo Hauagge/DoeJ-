@@ -21,15 +21,33 @@ export const Card = styled(NavLink)`
 	border-radius: 5px;
 	color: #000;
 
-	p {
+
+	strong {
 		margin-top: 14px;
 		font-size: 20px;
 		font-weight: bold;
 		line-height: 54px;
 	}
 
+    img {
+        margin-top: 30px;
+        height: 180px;
+    }
+
+    div {
+        height: 180px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    p {
+        margin-top: 15px;
+    }
+
 	&:hover {
 		border: 1px solid white;
-		transform: translateY(-5px);
+		transform: translateY(-4px);
 	}
 `;

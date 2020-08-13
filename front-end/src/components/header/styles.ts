@@ -29,6 +29,9 @@ export const HeaderContent = styled.div`
 			width: 20px;
 			height: 20px;
 		}
+		svg:hover {
+			color: red;
+		}
 	}
 `;
 
