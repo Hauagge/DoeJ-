@@ -17,6 +17,10 @@ export const Container = styled.aside`
 		height: 50px;
 		margin-top: 5px;
 	}
+
+    @media print {
+        display: none;
+    }
 `;
 
 export const SideMenuLink = styled(NavLink)`

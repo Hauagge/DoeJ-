@@ -7,15 +7,26 @@ export const Content = styled.main`
 	max-width: 1920px;
 	display: flex;
 `;
-export const MainContent = styled.div`display: flex;`;
+export const MainContent = styled.div`
+    display: flex;
+
+    >div {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        height: 50px;
+        width: 150px;
+        margin-top: 20px;
+    }
+`;
 
 export const Card = styled(NavLink)`
     display: flex;
     flex-direction: column;
     text-decoration: none;
-	height: 80%;
+	height: 70%;
 	width: 25.25vw;
-	margin: auto 15px;
+	margin: 100px 10px 60px 40px;
     text-align: center;
 	background: #8ba4d8;
     box-shadow: rgb(0, 0, 0) 0px 0rem 0.5rem;

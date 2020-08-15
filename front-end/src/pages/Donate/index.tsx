@@ -16,6 +16,11 @@ const Donate: React.FC = () => {
 			<Content>
 				<SideMenu />
 				<MainContent>
+                    <div>
+                        <h1>
+                            DOAÇÕES
+                        </h1>
+                    </div>
 					<Card to="/donatetocampains">
 						<strong>Campanhas</strong>
 						<img src={Campaign} alt="Camapnha" />

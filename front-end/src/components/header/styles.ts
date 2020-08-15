@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Container = styled.div``;
+export const Container = styled.div`
+    @media print {
+        display: none;
+    }
+`;
 
 export const MainHeader = styled.header`
 	padding: 16px 0;
@@ -44,7 +48,7 @@ export const Personal = styled.div`
 export const Profile = styled.div`
 	display: flex;
 	align-items: center;
-	margin-left: 80px;
+	margin-left: 300px;
 
 	img {
 		width: 56px;
@@ -68,11 +72,11 @@ export const Profile = styled.div`
 	}
 `;
 
-export const Wallet = styled.div`
+/* export const Wallet = styled.div`
 	margin-left: 80px;
 	margin-right: 80px;
 	background: #0c2461;
 	padding: 5px 10px;
 	border-radius: 20px;
 	font-size: 25px;
-`;
+`; */

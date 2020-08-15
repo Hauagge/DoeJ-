@@ -8,7 +8,7 @@ import {
 	HeaderContent,
 	Personal,
 	Profile,
-	Wallet
+	/* Wallet */
 } from './styles';
 
 import logoImg from '../../assets/logo.svg';
@@ -39,12 +39,12 @@ function Header() {
 							</div>
 						</Profile>
 
-						<Wallet>
+{/* 						<Wallet>
 							<div>
 								<span> Carteira: </span>
 								<strong> R$ 650,00</strong>
 							</div>
-						</Wallet>
+						</Wallet> */}
 					</Personal>
 					<button type="button" onClick={signOut}>
 						<FiPower />
