@@ -46,11 +46,11 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()',
           },
-          {
-            name: 'foto',
-            type: 'varchar',
-            isNullable: true,
-          },
+          // {
+          //   name: 'foto',
+          //   type: 'varchar',
+          //   isNullable: true,
+          // },
           {
             name: 'login',
             type: 'varchar',
@@ -64,26 +64,26 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()',
           },
-          {
-            name: 'saldo',
-            type: 'decimal',
-            default: '0',
-          },
+          // {
+          //   name: 'saldo',
+          //   type: 'decimal',
+          //   default: '0',
+          // },
           {
             name: 'nascimento',
             type: 'date',
             isNullable: true,
           },
-          {
-            name: 'fotoDoc_frente',
-            type: 'varchar',
-            isNullable: true,
-          },
-          {
-            name: 'fotoDoc_verso',
-            type: 'varchar',
-            isNullable: true,
-          },
+          // {
+          //   name: 'fotoDoc_frente',
+          //   type: 'varchar',
+          //   isNullable: true,
+          // },
+          // {
+          //   name: 'fotoDoc_verso',
+          //   type: 'varchar',
+          //   isNullable: true,
+          // },
           {
             name: 'identifier_ID',
             type: 'integer',
