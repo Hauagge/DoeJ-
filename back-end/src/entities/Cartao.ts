@@ -19,9 +19,10 @@ export default class Cartao {
   @Column()
   conta: string;
 
-  @ManyToOne(() => Bandeira, bandeira => bandeira.ID)
-  bandeira_ID: Bandeira;
+  @ManyToOne(() => Bandeira, bandeira => bandeira.cartao)
+  bandeira: Bandeira;
 
-  @ManyToOne(() => User, user => user.ID)
-  user_ID: User;
+  @ManyToOne(() => User, user => user.cartao)
+  user: User;
+
 }

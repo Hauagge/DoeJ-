@@ -7,9 +7,9 @@ export default class UserTag {
   @PrimaryGeneratedColumn('uuid')
   ID: string;
 
-  @ManyToOne(() => User, user => user.ID)
-  user_ID: User;
+  @ManyToOne(() => User, user => user.userTag)
+  user: User;
 
-  @ManyToOne(() => Tag, tag => tag.ID)
-  tag_ID: Tag;
+  @ManyToOne(() => Tag, tag => tag.userTag)
+  tag: Tag;
 }

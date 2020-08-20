@@ -1,6 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToMany } from 'typeorm';
 import User from './User';
 import Marca from './Marca';
+import ImgProduto from './ImgProduto';
+import Item from './Item';
+import VoucherItem from './VoucherItem';
 
 @Entity('Produto')
 export default class Produto {
@@ -16,9 +19,18 @@ export default class Produto {
   @Column()
   quantidade: number;
 
-  @ManyToOne(() => User, user => user.ID)
-  user_ID: User;
+  @ManyToOne(() => User, user => user.produto)
+  user: User;
 
-  @ManyToOne(() => Marca, marca => marca.ID)
-  marca_ID: Marca;
+  @ManyToOne(() => Marca, marca => marca.produto)
+  marca: Marca;
+
+  @OneToMany(() => ImgProduto, imgProduto => imgProduto.produto)
+  imgProduto: ImgProduto[];
+
+  @OneToMany(() => Item, item => item.produto)
+  item: Item[];
+
+  @OneToMany(() => VoucherItem, voucherItem => voucherItem.produto)
+  voucherItem : VoucherItem[];
 }

@@ -26,8 +26,8 @@ class TransactionsRepository extends Repository<Lista>
         if(newLista.descricao != null)
         lista.descricao = newLista.descricao;
 
-        if(newLista.categoriaLista_ID != null)
-        lista.categoriaLista_ID = newLista.categoriaLista_ID;
+        if(newLista.categoriaLista != null)
+        lista.categoriaLista = newLista.categoriaLista;
 
         await this.save(lista);
     }
@@ -36,13 +36,6 @@ class TransactionsRepository extends Repository<Lista>
     {
         var list:ArrayLista = {arrayLista: new Array<Lista>()};
         list.arrayLista = await this.find({where:{userOwner_ID: user.ID}});
-        return list;
-    }
-
-    public async getListaByDonator(user:User): Promise<ArrayLista>
-    {
-        var list:ArrayLista = {arrayLista: new Array<Lista>()};
-        list.arrayLista = await this.find({where:{userDonator_ID: user.ID}});
         return list;
     }
 }

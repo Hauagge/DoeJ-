@@ -34,8 +34,8 @@ class TransactionsRepository extends Repository<Produto>
         if(novoProduto.quantidade != null)
         produto.quantidade = novoProduto.quantidade;    
 
-        if(novoProduto.marca_ID != null)
-        produto.marca_ID = novoProduto.marca_ID;
+        if(novoProduto.marca != null)
+        produto.marca = novoProduto.marca;
 
         await this.save(produto);
     }
