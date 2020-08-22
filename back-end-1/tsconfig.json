@@ -11,16 +11,12 @@
     "paths": {
       "@modules/*":["modules/*"],
       "@config/*":["config/*"],
-      "@shared/*":["shared/*"]
+      "@shared/*":["shared/*"],
     },
+
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "forceConsistentCasingInFileNames": true
   },
-  "includes": [
-    "src"
-
-  ]
-
 }
