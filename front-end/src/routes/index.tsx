@@ -19,11 +19,11 @@ const Routes: React.FC = () => (
 		<Route path="/" exact component={SignIn} />
 		<Route path="/signup" component={SignUp} />
 
-		<Route path="/dashboard" component={Dashboard} /*  isPrivate  */ />
-		<Route path="/donate" component={Donate} /*  isPrivate  */ />
-		<Route path="/directdonation" component={DirectDonation} /*  isPrivate  */ />
-		<Route path="/confirmdonation" component={ConfirmDonation} /*  isPrivate  */ />
-		<Route path="/receipt" component={Receipt} /*  isPrivate  */ />
+		<Route path="/dashboard" component={Dashboard} isPrivate/>
+		<Route path="/donate" component={Donate} isPrivate />
+		<Route path="/directdonation" component={DirectDonation} isPrivate/>
+		<Route path="/confirmdonation" component={ConfirmDonation} isPrivate/>
+		<Route path="/receipt" component={Receipt} isPrivate />
 
 
 
