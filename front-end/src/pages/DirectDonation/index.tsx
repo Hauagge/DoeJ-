@@ -11,10 +11,9 @@ import {/* Link,  */useHistory} from 'react-router-dom'
 import * as Yup from 'yup';
 
 
-import { Container, Content, MainContent/* , Infos */} from './styles';
+import { Container, Content, MainContent, Infos} from './styles';
 
 import {useToast} from '../../hooks/toast'
-/* import {useAuth} from '../../hooks/auth' */
 import getValidationErrors from '../../utils/getValidationErrors'
 
 
@@ -24,6 +23,7 @@ import Header from '../../components/header';
 
 import Input from '../../components/input';
 import Button from '../../components/button';
+import AsyncSelect from '../../components/asyncSelect'
 
 interface DonationFormData {
     moneyAmount: number;
@@ -39,6 +39,14 @@ const DirectDonation: React.FC = () => {
 
     const {addToast} = useToast();
 
+    const mercadoOptions = [
+        {value: 'Muffato', label:'Muffato-Max'},
+        {value: 'Parana', label:'Parana Centro'},
+        {value: 'Carreira', label:'Super Carreira'},
+        {value: 'Condor', label:'Condor Saida'},
+
+    ]
+
     const handleSubmit = useCallback(async (data: DonationFormData) => {
 		try {
             formRef.current?.setErrors({})
@@ -46,7 +54,6 @@ const DirectDonation: React.FC = () => {
 			const schema = Yup.object().shape({
 				number: Yup.number()
 					.required('É obrigatório digitar um valor numérico')
-				/* password: Yup.string().required('Senha obrigatória') */
 			});
 
 			await schema.validate(data, {
@@ -71,11 +78,13 @@ const DirectDonation: React.FC = () => {
 
             addToast({
                 type: 'error',
-                title: 'Erro na autenticação',
-                description: 'Ocorreu um erro ao fazer login, cheque as credenciais'
+                title: 'Erro no valor',
+                description: 'Digite um valor correto'
             });
 		}
     }, [/* signIn,  */addToast, history]);
+
+
 
 	return (
 		<Container>
@@ -88,48 +97,19 @@ const DirectDonation: React.FC = () => {
                             DOAÇÕES DIRETAS
                         </h1>
                     </div>
-{/* Inicio do formulario de preenchimento, dá pra usar as coisaas prontas mais pra frente (input por exemplo)*/}
                     <Form ref = {formRef}onSubmit={handleSubmit}>
+                    <Infos>
+
 
                     <Input name="moneyAmount" icon={FiDollarSign} placeholder="Quanto deseja doar" />
-                    {/* <Input name="email" icon={FiMail} placeholder="E-mail" />
-                    <Input
-                        name="password"
-                        icon={FiLock}
-                        type="password"
-                        placeholder="Senha"
-                    /> */}
 
-                    <label>
-                        Escolha em qual mercado deve ser retirado a doação: &nbsp;
-                        <select>
-
-                            <option selected value="Selecionar">Selecionar</option>
-                            <option value="Mercado1">Mercado1</option>
-                            <option value="Mercado2">Mercado2</option>
-                            <option value="Mercado3">Mercado3</option>
-                        </select>
-                    </label>
+                    <AsyncSelect name="mercado1" options= {mercadoOptions}/>
 
                     <Button type="submit">DOAR ♡</Button>
 
-			        </Form>
-                    {/* <Infos>
-                        <input type="text" name="moneyAmount" placeholder="Quanto deseja doar?"/>
 
-                            <label>
-                                Escolha em qual mercado deve ser retirado a doação: &nbsp;
-                                <select>
-
-                                    <option selected value="Selecionar">Selecionar</option>
-                                    <option value="Mercado1">Mercado1</option>
-                                    <option value="Mercado2">Mercado2</option>
-                                    <option value="Mercado3">Mercado3</option>
-                                </select>
-                            </label>
-                            <button>DOAR ♡</button>
-                    </Infos> */}
-
+                    </Infos>
+                    </Form>
 				</MainContent>
 			</Content>
 		</Container>

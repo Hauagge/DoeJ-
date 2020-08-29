@@ -6,8 +6,9 @@ function SideMenu() {
 	return (
 		<Container>
 			<h1>Menu</h1>
+            <SideMenuLink to="/">Início</SideMenuLink>
 			<SideMenuLink to="/donate">Doar</SideMenuLink>
-			<SideMenuLink to="/donateHistory">
+			<SideMenuLink to="/"> {/* donateHistory */}
 				Historico de Doações
 			</SideMenuLink>
 		</Container>

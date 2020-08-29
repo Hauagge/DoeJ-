@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const Container = styled.div`
     @media print {
@@ -10,17 +11,19 @@ export const MainHeader = styled.header`
 	padding: 16px 0;
 	background: #4a69bd;
 `;
+
+export const HeaderLogo = styled(NavLink)`
+    img {
+		margin-left: 50px;
+		height: 60px;
+	}
+`;
 export const HeaderContent = styled.div`
 	width: 100%;
 	margin: 0 auto;
 	display: flex;
 	align-items: center;
 	padding: 0px 30px;
-
-	> img {
-		margin-left: 50px;
-		height: 60px;
-	}
 
 	button {
 		margin-left: auto;

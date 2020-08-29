@@ -29,6 +29,7 @@ export const Card = styled(NavLink)`
 	margin: 100px 10px 60px 40px;
     text-align: center;
 	background: #8ba4d8;
+    border: 1px solid #8ba4d8;
     box-shadow: rgb(0, 0, 0) 0px 0rem 0.5rem;
 	padding: 22px 32px;
 	border-radius: 5px;

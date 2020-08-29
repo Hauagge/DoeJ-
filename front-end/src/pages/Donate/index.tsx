@@ -21,7 +21,7 @@ const Donate: React.FC = () => {
                             DOAÇÕES
                         </h1>
                     </div>
-					<Card to="/donatetocampains">
+					<Card to="/donate"> {/* donatetocampains */}
 						<strong>Campanhas</strong>
 						<img src={Campaign} alt="Camapnha" />
 						<div>
@@ -39,7 +39,7 @@ const Donate: React.FC = () => {
 							</p>
 						</div>
 					</Card>
-					<Card to="/donatetocause">
+					<Card to="/donate"> {/* donatetocause */}
 						<strong>Doação para a nossa causa</strong>
 						<img src={FutureCause} alt="CausaFutura" />
 						<div>

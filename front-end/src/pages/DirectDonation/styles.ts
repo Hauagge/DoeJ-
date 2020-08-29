@@ -24,14 +24,11 @@ export const Infos = styled.div`
     padding: 10px;
     background: #8ba4d8;
 	border-radius: 5px;
-    height: 40%;
-    width: 40%;
+    height: 400px;
+    width: 700px;
     align-items: center;
 	justify-content: space-between;
 
-    input {
-        font-size: 20px;
-    }
 
     label {
         font-size: 20px;
@@ -43,6 +40,7 @@ export const Infos = styled.div`
 
     button {
         font-size: 20px;
+        width: 150px;
     }
 
 `;
