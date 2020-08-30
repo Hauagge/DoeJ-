@@ -32,7 +32,7 @@ function Header() {
 			<MainHeader>
 				<HeaderContent>
                     <HeaderLogo to="/">
-					    <img src={logoImg} alt="GoBarber" />
+					    <img src={logoImg} alt="Doeja" />
                     </HeaderLogo>
 					<Personal>
 						<Profile>

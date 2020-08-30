@@ -1,6 +1,6 @@
-import React, { useCallback, useRef} from 'react';
+import React, { useCallback, useRef, useState, useEffect} from 'react';
 import { /* FiLogIn, FiMail, FiLock,  */FiDollarSign } from 'react-icons/fi';
-
+import api from '../../services/api';
 
 
 import { FormHandles } from '@unform/core';
@@ -27,25 +27,53 @@ import AsyncSelect from '../../components/asyncSelect'
 
 interface DonationFormData {
     moneyAmount: number;
-    /* password: string; */
+    marcadoOptions: marcadoOptions[];
+}
+
+interface Supplier {
+    id: string;
+    name: string;
+}
+
+interface marcadoOptions {
+    value: string;
+    label: string;
 }
 
 const DirectDonation: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
+    const [suppliers, setSuppliers] = useState<Supplier []>([]);
+
 
     /* const {signIn} = useAuth(); */
+
     const history = useHistory();
 
 
     const {addToast} = useToast();
 
-    const mercadoOptions = [
-        {value: 'Muffato', label:'Muffato-Max'},
-        {value: 'Parana', label:'Parana Centro'},
-        {value: 'Carreira', label:'Super Carreira'},
-        {value: 'Condor', label:'Condor Saida'},
 
-    ]
+    useEffect(() =>  {
+        async function loadMarkets(): Promise<void>{
+            const response = await api.get('/suppliers');
+
+            const { data } = response
+
+            setSuppliers(data)
+
+
+        }
+        loadMarkets()
+    }, []);
+
+    const marcadoOptions:marcadoOptions[] = suppliers.map(supplier=>{
+
+        return {
+            value: supplier.id,
+            label: supplier.name
+        }
+
+        })
 
     const handleSubmit = useCallback(async (data: DonationFormData) => {
 		try {
@@ -53,7 +81,9 @@ const DirectDonation: React.FC = () => {
 
 			const schema = Yup.object().shape({
 				number: Yup.number()
-					.required('É obrigatório digitar um valor numérico')
+                    .required('É obrigatório digitar um valor numérico'),
+                marcadoOptions: Yup.string().required('É obrigatório escolher um mercado')
+
 			});
 
 			await schema.validate(data, {
@@ -78,8 +108,8 @@ const DirectDonation: React.FC = () => {
 
             addToast({
                 type: 'error',
-                title: 'Erro no valor',
-                description: 'Digite um valor correto'
+                title: 'Erro na doação',
+                description: 'Ocorreu um erro ao fazer a doação, tente novamente'
             });
 		}
     }, [/* signIn,  */addToast, history]);
@@ -103,7 +133,11 @@ const DirectDonation: React.FC = () => {
 
                     <Input name="moneyAmount" icon={FiDollarSign} placeholder="Quanto deseja doar" />
 
-                    <AsyncSelect name="mercado1" options= {mercadoOptions}/>
+                    <div>
+                    <label>Em qual mercado será retirada a sua doação?</label>
+                    <AsyncSelect name="mercado1" options= {marcadoOptions}/>
+                    </div>
+
 
                     <Button type="submit">DOAR ♡</Button>
 

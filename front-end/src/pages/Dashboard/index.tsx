@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
 				<MainContent>
 					<div />
 
-					<img src={logoImg} alt="GoBarber" />
+					<img src={logoImg} alt="Doeja" />
 					<h1>Olá Stéfano Pontelli</h1>
 				</MainContent>
 			</Content>

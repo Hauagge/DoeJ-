@@ -26,11 +26,12 @@ const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
 	const [ data, setData ] = useState<AuthState>(() => {
-		const token = localStorage.getItem('@GoBarber:token');
-		const user = localStorage.getItem('@GoBarber:user');
+		const token = localStorage.getItem('@DoeJa:token');
+		const user = localStorage.getItem('@DoeJa:user');
 
 		if (token && user) {
-			return { token, user: JSON.parse(user) };
+            api.defaults.headers.authorization = `Bearer ${token}`;
+            return { token, user: JSON.parse(user) };
 		}
 
 		return {} as AuthState;
@@ -44,15 +45,16 @@ const AuthProvider: React.FC = ({ children }) => {
 
 		const { token, user } = response.data;
 
-		localStorage.setItem('@GoBarber:token', token);
-		localStorage.setItem('@GoBarber:user', JSON.stringify(user));
+		localStorage.setItem('@DoeJa:token', token);
+        localStorage.setItem('@DoeJa:user', JSON.stringify(user));
+        api.defaults.headers.authorization = `Bearer ${token}`;
 
 		setData({ token, user });
 	}, []);
 
 	const signOut = useCallback(() => {
-		localStorage.removeItem('@GoBarber:token');
-		localStorage.removeItem('@GoBarber:user');
+		localStorage.removeItem('@DoeJa:token');
+		localStorage.removeItem('@DoeJa:user');
 
 		setData({} as AuthState);
 	}, []);

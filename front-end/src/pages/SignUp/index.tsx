@@ -53,7 +53,7 @@ const SignUp: React.FC = () => {
             addToast({
                 type: 'success',
                 title: 'Cadastro realizado!',
-                description: 'Você já pode fazer seu logon no GoBarber!'
+                description: 'Você já pode fazer seu logon na DoeJá!'
             })
 
 		} catch (err) {
@@ -78,7 +78,7 @@ const SignUp: React.FC = () => {
 			<Background />
 			<Content>
                 <AnimationContainer>
-				<img src={logoImg} alt="GoBarber" />
+				<img src={logoImg} alt="Doeja" />
 
 
 				<Form ref={formRef} onSubmit={handleSubmit} >
