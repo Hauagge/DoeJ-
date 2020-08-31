@@ -6,8 +6,12 @@ import logoImg from '../../assets/logo.svg';
 
 import SideMenu from '../../components/sideMenu';
 import Header from '../../components/header';
+import { useAuth } from '../../hooks/auth';
 
 const Dashboard: React.FC = () => {
+
+    const { user } = useAuth();
+
 	return (
 		<Container>
 			<Header />
@@ -17,7 +21,7 @@ const Dashboard: React.FC = () => {
 					<div />
 
 					<img src={logoImg} alt="Doeja" />
-					<h1>Olá Stéfano Pontelli</h1>
+					<h1>Olá {user.name}</h1>
 				</MainContent>
 			</Content>
 		</Container>

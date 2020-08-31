@@ -5,7 +5,7 @@ import api from '../../services/api';
 
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import {/* Link,  */useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 
 import * as Yup from 'yup';
@@ -19,7 +19,6 @@ import getValidationErrors from '../../utils/getValidationErrors'
 
 import SideMenu from '../../components/sideMenu';
 import Header from '../../components/header';
-/* import apiMercadopago from '../../services/apiMercadopago' */
 
 import Input from '../../components/input';
 import Button from '../../components/button';
@@ -27,7 +26,7 @@ import AsyncSelect from '../../components/asyncSelect'
 
 interface DonationFormData {
     moneyAmount: number;
-    marcadoOptions: marcadoOptions[];
+    chosenMarket: string;
 }
 
 interface Supplier {
@@ -75,14 +74,26 @@ const DirectDonation: React.FC = () => {
 
         })
 
+    const callMercadoPago = useCallback(async ({ value, supplier_id }) => {
+/*         console.log(value);
+        console.log(supplier_id); */
+        const response = await api.post('/directdonation', {
+            value,
+            supplier_id
+        });
+
+        console.log(response.data);
+    }, []);
+
     const handleSubmit = useCallback(async (data: DonationFormData) => {
+        console.log(data.chosenMarket);
+        console.log(data.moneyAmount);
 		try {
             formRef.current?.setErrors({})
 
 			const schema = Yup.object().shape({
-				number: Yup.number()
-                    .required('É obrigatório digitar um valor numérico'),
-                marcadoOptions: Yup.string().required('É obrigatório escolher um mercado')
+				moneyAmount: Yup.number().required('É necessário preencher este campo').integer('Deve ser um valor inteiro e numérico').typeError('É necessário digitar um valor numérico'),
+                chosenMarket: Yup.string().required('É obrigatório escolher um mercado')
 
 			});
 
@@ -90,6 +101,11 @@ const DirectDonation: React.FC = () => {
 				abortEarly: false
             });
 
+            await callMercadoPago({
+                value: data.moneyAmount,
+                supplier_id: data.chosenMarket,
+
+            })
             /* await signIn({
                 email: data.email,
                 password: data.password,
@@ -112,7 +128,7 @@ const DirectDonation: React.FC = () => {
                 description: 'Ocorreu um erro ao fazer a doação, tente novamente'
             });
 		}
-    }, [/* signIn,  */addToast, history]);
+    }, [/* signIn,  */callMercadoPago, addToast, history]);
 
 
 
@@ -135,7 +151,7 @@ const DirectDonation: React.FC = () => {
 
                     <div>
                     <label>Em qual mercado será retirada a sua doação?</label>
-                    <AsyncSelect name="mercado1" options= {marcadoOptions}/>
+                    <AsyncSelect name="chosenMarket" options= {marcadoOptions}/>
                     </div>
 
 

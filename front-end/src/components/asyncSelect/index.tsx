@@ -13,7 +13,7 @@ interface Props extends SelectProps<OptionTypeBase> {
 
 const Select: React.FC<Props> = ({ name, ...rest }) => {
   const selectRef = useRef(null);
-  const { fieldName, defaultValue, registerField, error } = useField(name);
+  const { fieldName, defaultValue, registerField/* , error */ } = useField(name);
   useEffect(() => {
     registerField({
       name: fieldName,
