@@ -21,8 +21,7 @@ jobs:
       
     #Instalar as dependencias
     - name: Install dependencies
-      uses: actions/setup-node@v1
-    - run: cd app/DoeJa/back-end-
+    - run: cd app/DoeJa/back-end-1
     - run: yarn build 
      
    #Executar a build
