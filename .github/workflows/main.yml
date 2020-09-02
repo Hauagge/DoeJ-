@@ -13,10 +13,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
     
-    - name: Setup Node.js environment
-  uses: actions/setup-node@v1.4.3
-  with:
-      node-version:12.x
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1.4.3
+         with:
+          node-version:12.x
+         
       
       #Instalar as dependencias
    - name: Install dependencies
@@ -39,7 +40,7 @@ jobs:
         
         
       -name: Install Dependencies on Digital Oceans
-        uses: appleboy/scp-action@master
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
@@ -51,7 +52,7 @@ jobs:
           
        -name: Run migration os digital Ocean  on Digital Oceans
         uses: appleboy/scp-action@master
-      with:
+        with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
         port: ${{ secrets.SSH_PORT }}
