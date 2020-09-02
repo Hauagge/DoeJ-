@@ -21,11 +21,15 @@ jobs:
       
     #Instalar as dependencias
     - name: Install dependencies
-      run: yarn
+      run: |
+        "~/app/DoeJa/back-end-1"
+        yarn
      
    #Executar a build
     - name: Run build
-      run: yarn build
+      run: |
+         "~/app/DoeJa/back-end-1"
+         yarn build
  
    #Copia dos arquivos da pasta dist
     - name: copy dist to digital Ocean
