@@ -22,7 +22,7 @@ jobs:
     #Instalar as dependencias
     - name: Install dependencies
       run: |
-        "~/app/DoeJa/back-end-1"
+        ~/app/DoeJa/back-end-1
         yarn
      
    #Executar a build
