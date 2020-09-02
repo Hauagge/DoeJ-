@@ -11,25 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
     
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v1.4.3
-         with:
-          node-version:12.x
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.3
+      with:
+            node-version:12.x
          
       
-      #Instalar as dependencias
-   - name: Install dependencies
-     run: yarn
+    #Instalar as dependencias
+    - name: Install dependencies
+      run: yarn
      
-     #Executar a build
-     - name: Run build
-     run: yarn build
-     
-     
-      -name: Copy dist to digital Ocean
-        uses: appleboy/scp-action@master
+   #Executar a build
+    - name: Run build
+      run: yarn build
+ 
+   #Copia dos arquivos da pasta dist
+    - name: copy dist to digital Ocean
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
@@ -37,9 +37,9 @@ jobs:
         key: ${{ secrets.SSH_KEY}}
         source: ".,!node_modules"
         target: "~/app/DoeJa/back-end-1"
+
         
-        
-      -name: Install Dependencies on Digital Oceans
+    - name: Install Dependencies on Digital Oceans
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
@@ -50,16 +50,16 @@ jobs:
           ~/app/DoeJa/back-end-1
           yarn
           
-       -name: Run migration os digital Ocean  on Digital Oceans
-        uses: appleboy/scp-action@master
-        with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        port: ${{ secrets.SSH_PORT }}
-        key: ${{ secrets.SSH_KEY}}
-        script: |
-          ~/app/DoeJa/back-end-1
-          ./node_modules/.bin/typeorm migration:run
+    - name: Run migration os digital Ocean  on Digital Oceans
+      uses: appleboy/scp-action@master
+      with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          port: ${{ secrets.SSH_PORT }}
+          key: ${{ secrets.SSH_KEY}}
+          script: |
+           ~/app/DoeJa/back-end-1
+           ./node_modules/.bin/typeorm migration:run
            pm2 restart 0
 
      
