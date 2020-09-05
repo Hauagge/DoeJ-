@@ -23,6 +23,7 @@ import Header from '../../components/header';
 import Input from '../../components/input';
 import Button from '../../components/button';
 import AsyncSelect from '../../components/asyncSelect'
+import { useAuth } from '../../hooks/auth';
 
 interface DonationFormData {
     moneyAmount: number;
@@ -39,18 +40,31 @@ interface marcadoOptions {
     label: string;
 }
 
+/* interface DonationInfos {
+    value: number;
+    supplier_id: string;
+} */
+
+/* interface valueInfo {
+    value: number;
+}
+
+interface supplierInfo {
+    supplier_id: string
+} */
+
 const DirectDonation: React.FC = () => {
     const formRef = useRef<FormHandles>(null);
     const [suppliers, setSuppliers] = useState<Supplier []>([]);
+/*     const [valueInfo, setValueInfo] = useState<valueInfo []>([]);
+    const [supplierInfo, setSupplierInfo] = useState<supplierInfo []>([]); */
 
 
-    /* const {signIn} = useAuth(); */
+    const {user} = useAuth();
 
     const history = useHistory();
 
-
     const {addToast} = useToast();
-
 
     useEffect(() =>  {
         async function loadMarkets(): Promise<void>{
@@ -74,16 +88,18 @@ const DirectDonation: React.FC = () => {
 
         })
 
-    const callMercadoPago = useCallback(async ({ value, supplier_id }) => {
+    const callMercadoPago = useCallback(async ({value, supplier_id}) => {
 /*         console.log(value);
         console.log(supplier_id); */
-        const response = await api.post('/directdonation', {
+        const response = await api.post(`/directdonation/${user.id}`, {
             value,
             supplier_id
         });
 
         console.log(response.data);
-    }, []);
+        /* setValueInfo(value)
+        setSupplierInfo(supplier_id) */
+    }, [user.id]);
 
     const handleSubmit = useCallback(async (data: DonationFormData) => {
         console.log(data.chosenMarket);
