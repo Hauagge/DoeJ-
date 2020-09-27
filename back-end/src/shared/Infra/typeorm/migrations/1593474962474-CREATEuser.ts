@@ -65,25 +65,18 @@ export default class CREATEuser1593193026235 implements MigrationInterface {
             type: 'timestamp',
             default: 'now()',
           },
-<<<<<<< HEAD
           // {
           //   name: 'saldo',
           //   type: 'decimal',
           //   default: '0',
           // },
-=======
-          {
-            name: 'saldo',
-            type: 'NUMERIC(9, 2)',
-            default: '0',
-          },
->>>>>>> refs/remotes/origin/master
           {
             name: 'nascimento',
             type: 'date',
             isNullable: true,
           },
           // {
+
           //   name: 'fotoDoc_frente',
           //   type: 'varchar',
           //   isNullable: true,

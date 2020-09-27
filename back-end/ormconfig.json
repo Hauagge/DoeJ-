@@ -5,7 +5,7 @@
   "port": 5432,
   "username":"postgres",
   "password":"1234",
-  "database": "DoeJa2",
+  "database": "DoeJa",
   "entities":[
     "./src/entities/*.ts"
   ],
